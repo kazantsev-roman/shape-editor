@@ -4,3 +4,4 @@
 
 > Приложение с использованием паттерна MVC, позволяющее создавать композицию из геометрических фигур.
 
+[Диаграмма классов](https://drive.google.com/file/d/1WuBVgOjzUFYm7vF-f-iGAMcbUyAu_p0X/view?usp=sharing)
