@@ -1,0 +1,40 @@
+.wrap {
+	width: 100%;
+	height: 53px;
+	display: flex;
+	background-color: #cbaf87;
+	border-bottom: #787878 1px solid;
+}
+
+.image {
+	position: relative;
+	top: 10px;
+	left: 10px;
+	width: 31px;
+	height: 31px;
+}
+
+.image:nth-child(1) {
+	position: absolute;
+	left: 258px;
+}
+.image:nth-child(2) {
+	position: absolute;
+	left: 290px;
+}
+
+.image:nth-child(1):hover {
+	top: 9px;
+	left: 257px;
+	width: 33px;
+	height: 33px;
+	cursor: pointer;
+}
+
+.image:nth-child(2):hover {
+	top: 9px;
+	left: 289px;
+	width: 33px;
+	height: 33px;
+	cursor: pointer;
+}

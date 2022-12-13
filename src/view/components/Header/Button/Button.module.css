@@ -1,0 +1,21 @@
+.button {
+	height: 21px;
+	padding: 4px 15px;
+	margin-left: 15px;
+	margin-top: 10px;
+	border: #787878 1px solid;
+	border-radius: 3px;
+}
+
+.button:hover {
+	transition: 0.4s;
+	background-color: #7e8a97;
+	cursor: pointer;
+}
+
+.text  {
+	color: #30475e;
+	font-size: 17px;
+	line-height: 17px;
+	font-family: Georgia, sans-serif;
+}

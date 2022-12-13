@@ -1,0 +1,7 @@
+.canvasWrap {
+	height: calc(100vh - 54px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #e7dec8;
+}
