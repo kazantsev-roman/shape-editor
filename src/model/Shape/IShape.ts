@@ -1,13 +1,13 @@
-import Point from "../common/Point";
+import Point from "../types/Point"
+import Size from "../types/Size"
 
 interface IShape
 {
 	GetId(): string
-
-	GetSize(): { width: number, height: number }
-	SetSize(size: { width: number, height: number }): void
-
-	SetLeftTopPoint(point: Point): void
+	GetType(): string
+	Resize(size: Size): void
+	GetSize(): Size
+	Move(point: Point): void
 	GetLeftTopPoint(): Point
 }
 

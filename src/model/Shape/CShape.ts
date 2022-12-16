@@ -1,49 +1,54 @@
 import IShape from "./IShape"
-import Frame from "../common/Frame"
-import Point from "../common/Point"
+import Frame from "../types/Frame"
+import Point from "../types/Point"
+import Size from "../types/Size"
 import { v4 as uuid } from 'uuid'
 
-class CShape implements IShape
+abstract class CShape implements IShape
 {
 	constructor()
 	{
-		this.m_id = uuid()
-		this.m_frame = {
+		this.id = uuid()
+		this.frame = {
 			leftTopPoint: {x: 50, y: 50},
 			width: 100,
 			height: 100
 		}
 	}
 
-	public GetId(): string
+	abstract GetType(): string;
+
+	GetId(): string
 	{
-		return this.m_id
+		return this.id
 	}
 
-	public GetLeftTopPoint(): Point
+	GetLeftTopPoint(): Point
 	{
-		return this.m_frame.leftTopPoint
+		return this.frame.leftTopPoint
 	}
 
-	public SetLeftTopPoint(point: Point): void
+	Move(point: Point): void
 	{
-		this.m_frame.leftTopPoint = point
+		this.frame.leftTopPoint = point
 	}
 
-	GetSize(): { width: number; height: number }
+	GetSize(): Size
 	{
 		return {
-			height: this.m_frame.height,
-			width: this.m_frame.width
+			height: this.frame.height,
+			width: this.frame.width
 		}
 	}
 
-	SetSize(size: { width: number; height: number }): void
+	Resize(size: Size): void
 	{
-		this.m_frame.width = size.width
-		this.m_frame.height = size.height
+		this.frame.width = size.width
+		this.frame.height = size.height
 	}
 
-	private readonly m_id: string
-	private m_frame: Frame
+	private readonly id: string
+	private frame: Frame
 }
+
+export default CShape
