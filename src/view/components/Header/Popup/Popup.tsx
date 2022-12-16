@@ -6,12 +6,16 @@ export function Popup(
 	props: {
 		visible: boolean,
 		indent: number,
-		elements: Array<{url: string, text: string}>,
+		elements: Array<{ url: string, text: string }>,
 		setColor: (color: string) => void,
 	}
 )
 {
 	useEffect(() => {
+		if (props.visible)
+		{
+			props.setColor("#7e8a97")
+		}
 		return () => {
 			props.setColor("#cbaf87")
 		}
@@ -21,7 +25,7 @@ export function Popup(
 		<div className={styles.wrap} style={{display: props.visible ? "block" : "none", left: `${props.indent}px`}}>
 			{
 				props.elements.map((element) => {
-					return <Element key={element.text} url={element.url} text={element.text} />
+					return <Element key={element.text} url={element.url} text={element.text}/>
 				})
 			}
 		</div>

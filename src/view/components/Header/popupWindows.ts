@@ -5,15 +5,18 @@ const popupWindows = [
 		elements: [
 			{
 				url: "images/open-folder.png",
-				text: "Open"
+				text: "Open",
+				callback: (path: string) => controller.Open(path)
 			},
 			{
 				url: "images/download.png",
-				text: "Save"
+				text: "Save",
+				callback: (filename: string) => controller.Save(filename)
 			},
 			{
 				url: "images/download.png",
-				text: "Save as"
+				text: "Save as",
+				callback: (path: string, filename: string) => controller.Save(path, filename)
 			},
 		]
 	},
@@ -23,15 +26,18 @@ const popupWindows = [
 		elements: [
 			{
 				url: "images/back-arrow.png",
-				text: "Undo"
+				text: "Undo",
+				callback: () => controller.Undo()
 			},
 			{
 				url: "images/forward.png",
-				text: "Redo"
+				text: "Redo",
+				callback: () => controller.Redo()
 			},
 			{
 				url: "images/trash.png",
-				text: "Delete"
+				text: "Delete",
+				callback: (id: string) => controller.Delete(id)
 			},
 		]
 	},
@@ -41,19 +47,23 @@ const popupWindows = [
 		elements: [
 			{
 				url: "images/stop.png",
-				text: "Rectangle"
+				text: "Rectangle",
+				callback: () => controller.AddShape("Rectangle")
 			},
 			{
 				url: "images/triangle-shape.png",
-				text: "Triangle"
+				text: "Triangle",
+				callback: () => controller.AddShape("Triangle")
 			},
 			{
 				url: "images/circle.png",
-				text: "Ellipse"
+				text: "Ellipse",
+				callback: () => controller.AddShape("Ellipse")
 			},
 			{
 				url: "images/image.png",
-				text: "Image"
+				text: "Image",
+				callback: (path: string) => controller.AddShape("Image", path)
 			},
 		]
 	},

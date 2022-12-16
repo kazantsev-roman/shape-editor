@@ -18,7 +18,9 @@ export function Button(
 		<div
 			ref={ref}
 			className={styles.button}
-			onClick={() => { setIsComponentVisible(!isComponentVisible)}}
+			onClick={() => {
+				setIsComponentVisible(!isComponentVisible)
+			}}
 			onMouseMove={() => {
 				setColor("#7e8a97")
 			}}
