@@ -28,11 +28,7 @@ export function Frame(
 	}
 
 	return (
-		<div style={
-			{
-				position: "relative"
-			}
-		}>
+		<div style={{ position: "relative" }}>
 			{props.isSelected && <ResizableRect
                 left={props.state.left - 10}
                 top={props.state.top - props.state.height - 10}
