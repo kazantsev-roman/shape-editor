@@ -1,18 +1,28 @@
 import styles from "./Element.module.css"
 
-export function Element(
-	props: {
-		url: string,
-		text: string
-	}
+interface ElementProps
+{
+	imageUrl: string,
+	text: string,
+	action: (...args: any) => void
+}
+
+function Element(
+	{
+		imageUrl,
+		text,
+		action
+	}: ElementProps
 )
 {
 	return (
-		<div className={styles.wrap}>
-			<img className={styles.image} src={props.url} alt={""} />
+		<div className={styles.wrap} onClick={() => action}>
+			<img className={styles.image} src={imageUrl} alt={""} />
 			<div className={styles.text}>
-				{props.text}
+				{text}
 			</div>
 		</div>
 	)
 }
+
+export default Element

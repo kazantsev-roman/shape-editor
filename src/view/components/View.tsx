@@ -1,15 +1,90 @@
-import { Canvas } from "./Canvas/Canvas"
 import styles from "./View.module.css"
-import { Header } from "./Header/Header";
+import Canvas from "./Canvas/Canvas"
+import Header from "./Header/Header"
+import IController from "../../controller/IController"
+import IItem from "../../model/Item/IItem"
+import Size from "../../model/utils/types/Size"
+import Point from "../../model/utils/types/Point"
 
-export function View()
+interface ViewProps
 {
+	controller: IController,
+	items: Array<IItem>
+}
+
+function View({ controller, items }: ViewProps )
+{
+	const addTriangle = () => {
+		controller.AddShape("Triangle")
+	}
+
+	const addRectangle = () => {
+		controller.AddShape("Rectangle")
+	}
+
+	const addEllipse = () => {
+		controller.AddShape("Ellipse")
+	}
+
+	const addImage = (path: string) => {
+		controller.AddImage(path)
+	}
+
+	const deleteItem = (id: string) => {
+		controller.DeleteItem(id)
+	}
+
+	const resizeItem = (id: string, size: Size) => {
+		controller.ResizeItem(id, size)
+	}
+
+	const moveItem = (id: string, point: Point) => {
+		controller.MoveItem(id, point)
+	}
+
+	const undo = () => {
+		controller.Undo()
+	}
+
+	const redo = () => {
+		controller.Redo()
+	}
+
+	const upload = (path: string) => {
+		controller.Upload(path)
+	}
+
+	const save = (filename: string) => {
+		controller.Save(filename)
+	}
+
+	const saveAs = (filename: string, path: string) => {
+		controller.Save(filename, path)
+	}
+
 	return (
 		<div>
-			<Header />
+			<Header
+				addTriangle={addTriangle}
+				addRectangle={addRectangle}
+				addEllipse={addEllipse}
+				addImage={addImage}
+				deleteItem={deleteItem}
+				undo={undo}
+				redo={redo}
+				upload={upload}
+				save={save}
+				saveAs={saveAs}
+			/>
 			<div className={styles.canvasWrap}>
-				<Canvas />
+				<Canvas
+					items={items}
+					resizeItem={resizeItem}
+					moveItem={moveItem}
+				/>
 			</div>
 		</div>
 	)
 }
+
+export default View

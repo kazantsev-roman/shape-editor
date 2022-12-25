@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, Ref } from 'react'
 
 export default function useComponentVisible(initialIsVisible: boolean) {
-	const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible)
-	const ref: any = useRef(null)
+	const [isComponentVisible, setIsComponentVisible] = useState<boolean>(initialIsVisible)
+	const ref: Ref<HTMLDivElement> | undefined = useRef(null)
 
 	const handleClickOutside = (event: MouseEvent) => {
 		if (ref.current && !ref.current.contains(event.target as Node)) {

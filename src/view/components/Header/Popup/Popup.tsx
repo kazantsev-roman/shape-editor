@@ -1,33 +1,42 @@
 import styles from "./Popup.module.css"
-import { Element } from "./Element/Element";
-import { useEffect } from "react";
+import { useEffect } from "react"
 
-export function Popup(
-	props: {
-		visible: boolean,
-		indent: number,
-		elements: Array<{ url: string, text: string }>,
-		setColor: (color: string) => void,
-	}
+interface PopupProps
+{
+	visible: boolean,
+	indent: number,
+	setColor: (color: string) => void,
+	children: Array<JSX.Element>,
+}
+
+function Popup(
+	{
+		visible,
+		indent,
+		setColor,
+		children
+	}: PopupProps
 )
 {
 	useEffect(() => {
-		if (props.visible)
+		if (visible)
 		{
-			props.setColor("#7e8a97")
+			setColor("#7e8a97")
 		}
 		return () => {
-			props.setColor("#cbaf87")
+			setColor("#cbaf87")
 		}
-	}, [props.visible])
+	}, [visible])
 
 	return (
-		<div className={styles.wrap} style={{display: props.visible ? "block" : "none", left: `${props.indent}px`}}>
+		<div className={styles.wrap} style={{display: visible ? "block" : "none", left: `${indent}px`}}>
 			{
-				props.elements.map((element) => {
-					return <Element key={element.text} url={element.url} text={element.text}/>
+				children.map((element) => {
+					return element
 				})
 			}
 		</div>
 	)
 }
+
+export default Popup

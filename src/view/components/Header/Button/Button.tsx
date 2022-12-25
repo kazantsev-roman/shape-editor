@@ -1,14 +1,21 @@
 import styles from "./Button.module.css"
-import { Popup } from "../Popup/Popup"
+import Popup from "../Popup/Popup"
 import { useState } from "react"
-import useComponentVisible from "../../../hooks/useComponentVisible";
+import useComponentVisible from "../../../hooks/useComponentVisible"
 
-export function Button(
-	props: {
-		text: string,
-		indent: number,
-		elements: Array<{url: string, text: string}>,
-	}
+interface ButtonProps
+{
+	text: string,
+	indent: number,
+	children: Array<JSX.Element>
+}
+
+function Button(
+	{
+		text,
+		indent,
+		children
+	}: ButtonProps
 )
 {
 	const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
@@ -32,8 +39,14 @@ export function Button(
 			}}
 			style={{backgroundColor: color}}
 		>
-			<span className={styles.text}>{props.text}</span>
-			<Popup elements={props.elements} visible={isComponentVisible} indent={props.indent} setColor={setColor} />
+			<span className={styles.text}>{text}</span>
+			<Popup visible={isComponentVisible} indent={indent} setColor={setColor}>
+				{children.map(element => {
+					return element
+				})}
+			</Popup>
 		</div>
 	)
 }
+
+export default Button
