@@ -1,4 +1,4 @@
-import CShape from "./CShape"
+import CShape from "../CShape"
 
 class CTriangle extends CShape
 {

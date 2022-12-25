@@ -1,9 +1,9 @@
-import IShape from "../Shape/IShape"
+import IItem from "../Item/IItem"
 
 interface IShapeFactory
 {
-	CreateShape(type: string, url: string): IShape
-	CreateShape(type: string): IShape
+	CreateShape(type: string, url: string): IItem
+	CreateShape(type: string): IItem
 }
 
 export default IShapeFactory

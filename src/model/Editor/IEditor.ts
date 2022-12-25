@@ -1,10 +1,10 @@
-import IShape from "../Shape/IShape"
-import Size from "../types/Size"
-import Point from "../types/Point"
+import IItem from "../Item/IItem"
+import Size from "../utils/types/Size"
+import Point from "../utils/types/Point"
 
 interface IEditor
 {
-	GetShapes(): Array<IShape>
+	GetShapes(): Array<IItem>
 	AddShape(type: string, path: string): void
 	AddShape(type: string): void
 	DeleteShape(id: string): void

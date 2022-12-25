@@ -1,15 +1,15 @@
-import IShape from "../Shape/IShape"
-import Point from "../types/Point"
+import IItem from "../Item/IItem"
+import Point from "../utils/types/Point"
 import CAbstractCommand from "./CAbstractCommand"
 
 class CMoveShapeCommand extends CAbstractCommand
 {
-	constructor(shapes: Array<IShape>, point: Point, id: string)
+	constructor(shapes: Array<IItem>, point: Point, id: string)
 	{
 		super()
 		this.shapes = shapes
 		this.newPoint = point
-		this.shape = this.shapes.find(shape => shape.GetId() == id)
+		this.shape = this.shapes.find(shape => shape.GetId() === id)
 	}
 
 	protected DoExecute(): void
@@ -31,8 +31,8 @@ class CMoveShapeCommand extends CAbstractCommand
 		throw "???"
 	}
 
-	private shapes: Array<IShape>
-	private readonly shape: IShape | undefined
+	private shapes: Array<IItem>
+	private readonly shape: IItem | undefined
 	private readonly newPoint: Point
 	private oldPoint: Point = {x: 0, y: 0}
 }

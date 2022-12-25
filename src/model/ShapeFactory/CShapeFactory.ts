@@ -1,15 +1,15 @@
-import IShape from "../Shape/IShape"
+import IItem from "../Item/IItem"
 import IShapeFactory from "./IShapeFactory"
-import CRectangle from "../Shape/CRectangle"
-import CTriangle from "../Shape/CTriangle"
-import CEllipse from "../Shape/CEllipse"
-import CImage from "../Shape/CImage"
+import CRectangle from "../Item/Shape/Rectangle/CRectangle"
+import CTriangle from "../Item/Shape/Triangle/CTriangle"
+import CEllipse from "../Item/Shape/Ellipse/CEllipse"
+import CImage from "../Item/Image/CImage"
 
 class CShapeFactory implements IShapeFactory
 {
-	CreateShape(type: string, url: string): IShape
-	CreateShape(type: string): IShape
-	CreateShape(type: string, url?: string): IShape
+	CreateShape(type: string, url: string): IItem
+	CreateShape(type: string): IItem
+	CreateShape(type: string, url?: string): IItem
 	{
 		if (type === "Rectangle")
 		{

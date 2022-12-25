@@ -1,15 +1,15 @@
 import CAbstractCommand from "./CAbstractCommand"
-import IShape from "../Shape/IShape"
-import Size from "../types/Size"
+import IItem from "../Item/IItem"
+import Size from "../utils/types/Size"
 
 class CResizeShapeCommand extends CAbstractCommand
 {
-	constructor(shapes: Array<IShape>, size: Size, id: string)
+	constructor(shapes: Array<IItem>, size: Size, id: string)
 	{
 		super()
 		this.shapes = shapes
 		this.newSize = size
-		this.shape = this.shapes.find(shape => shape.GetId() == id)
+		this.shape = this.shapes.find(shape => shape.GetId() === id)
 	}
 
 	protected DoExecute(): void
@@ -31,8 +31,8 @@ class CResizeShapeCommand extends CAbstractCommand
 		throw "???"
 	}
 
-	private shapes: Array<IShape>
-	private readonly shape: IShape | undefined
+	private shapes: Array<IItem>
+	private readonly shape: IItem | undefined
 	private readonly newSize: Size
 	private oldSize: Size = {width: 0, height: 0}
 }

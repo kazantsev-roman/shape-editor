@@ -1,6 +1,6 @@
-import Point from "../types/Point"
-import Size from "../types/Size"
-import IShape from "../Shape/IShape"
+import Point from "../utils/types/Point"
+import Size from "../utils/types/Size"
+import IItem from "../Item/IItem"
 import IEditor from "./IEditor"
 import ISerialization from "../Serialization/ISerialization"
 import IHistory from "../History/IHistory"
@@ -9,27 +9,31 @@ import CAddShapeCommand from "../Commands/CAddShapeCommand"
 import CDeleteShapeCommand from "../Commands/CDeleteShapeCommand"
 import CResizeShapeCommand from "../Commands/CResizeShapeCommand"
 import CMoveShapeCommand from "../Commands/CMoveShapeCommand"
+import CAddImageCommand from "../Commands/CAddImageCommand";
+import CRectangle from "../Item/Shape/Rectangle/CRectangle";
+import CSerializationJSON from "../Serialization/CSerializationJSON";
 
 class CEditor implements IEditor
 {
-	constructor(serialization: ISerialization) {
+	constructor()
+	{
 		this.history = new CHistory()
-		this.serialization = serialization
+		this.serialization = new CSerializationJSON()
 	}
 
-	GetShapes(): Array<IShape>
+	GetShapes(): Array<IItem>
 	{
-		return this.shapes;
+		return this.shapes
 	}
 
 	AddShape(type: string, path: string): void
 	AddShape(type: string): void
 	AddShape(type: string, path?: string): void
 	{
-		const addShapeCommand = path !== undefined
-			? new CAddShapeCommand(this.shapes, type, path)
+		const addItemCommand = path !== undefined
+			? new CAddImageCommand(this.shapes, type, path)
 			: new CAddShapeCommand(this.shapes, type)
-		this.history.ExecuteCommand(addShapeCommand)
+		this.history.ExecuteCommand(addItemCommand)
 	}
 
 	DeleteShape(id: string): void
@@ -74,7 +78,7 @@ class CEditor implements IEditor
 		this.serialization.Serialization()
 	}
 
-	private shapes: Array<IShape> = []
+	private shapes: Array<IItem> = [new CRectangle()]
 	private history: IHistory
 	private serialization: ISerialization
 }

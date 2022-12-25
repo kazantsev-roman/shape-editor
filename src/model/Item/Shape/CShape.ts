@@ -1,22 +1,22 @@
-import IShape from "./IShape"
-import Frame from "../types/Frame"
-import Point from "../types/Point"
-import Size from "../types/Size"
+import IItem from "../IItem"
+import Frame from "../../utils/types/Frame"
+import Point from "../../utils/types/Point"
+import Size from "../../utils/types/Size"
 import { v4 as uuid } from 'uuid'
 
-abstract class CShape implements IShape
+abstract class CShape implements IItem
 {
 	constructor()
 	{
 		this.id = uuid()
 		this.frame = {
 			leftTopPoint: {x: 50, y: 50},
-			width: 100,
+			width: 200,
 			height: 100
 		}
 	}
 
-	abstract GetType(): string;
+	abstract GetType(): string
 
 	GetId(): string
 	{
@@ -28,17 +28,17 @@ abstract class CShape implements IShape
 		return this.frame.leftTopPoint
 	}
 
-	Move(point: Point): void
-	{
-		this.frame.leftTopPoint = point
-	}
-
 	GetSize(): Size
 	{
 		return {
 			height: this.frame.height,
 			width: this.frame.width
 		}
+	}
+
+	Move(point: Point): void
+	{
+		this.frame.leftTopPoint = point
 	}
 
 	Resize(size: Size): void

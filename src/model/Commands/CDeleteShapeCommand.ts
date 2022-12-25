@@ -1,9 +1,9 @@
-import IShape from "../Shape/IShape"
+import IItem from "../Item/IItem"
 import CAbstractCommand from "./CAbstractCommand"
 
 class CDeleteShapeCommand extends CAbstractCommand
 {
-	constructor(shapes: Array<IShape>, id: string)
+	constructor(shapes: Array<IItem>, id: string)
 	{
 		super()
 		this.shapes = shapes
@@ -33,9 +33,9 @@ class CDeleteShapeCommand extends CAbstractCommand
 		throw "???"
 	}
 
-	private shapes: Array<IShape>
+	private shapes: Array<IItem>
 	private readonly position: number = 0
-	private shape: IShape | null = null
+	private shape: IItem | null = null
 }
 
 export default CDeleteShapeCommand
