@@ -26,7 +26,7 @@ function Popup(
 		return () => {
 			setColor("#cbaf87")
 		}
-	}, [visible])
+	}, [visible, setColor])
 
 	return (
 		<div className={styles.wrap} style={{display: visible ? "block" : "none", left: `${indent}px`}}>

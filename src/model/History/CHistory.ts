@@ -26,7 +26,7 @@ class CHistory implements IHistory
 		}
 		else
 		{
-			throw "CAN'T REDO"
+			throw Error("CAN'T REDO")
 		}
 	}
 
@@ -43,7 +43,7 @@ class CHistory implements IHistory
 		}
 		else
 		{
-			throw "CAN'T UNDO"
+			throw Error("CAN'T UNDO")
 		}
 	}
 

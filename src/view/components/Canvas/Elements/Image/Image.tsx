@@ -1,13 +1,13 @@
-import Settings from "../../../../Settings"
 import { useEffect, useRef, useState } from "react";
 import useClickOutside from "../../../../hooks/useClickOutside";
 import useDragAndDrop from "../../../../hooks/useDragAndDrop";
 import Size from "../../../../../model/utils/types/Size";
 import Point from "../../../../../model/utils/types/Point";
 
-interface RectangleProps
+interface ImageProps
 {
 	id: string,
+	path: string,
 	x: number,
 	y: number,
 	width: number,
@@ -16,7 +16,7 @@ interface RectangleProps
 	moveItem: (id: string, point: Point) => void
 }
 
-function Rectangle({ id, x, y, width, height, resizeItem, moveItem }: RectangleProps)
+function Image({ id, path, x, 	y, width, height, resizeItem, moveItem }: ImageProps)
 {
 	useEffect(() => {
 		setPosition({x, y})
@@ -25,23 +25,22 @@ function Rectangle({ id, x, y, width, height, resizeItem, moveItem }: RectangleP
 	const ref = useRef(null)
 	const [position, setPosition] = useState({x: x, y: y})
 
-	useClickOutside(ref, () => {})
+	useClickOutside(ref, () => {console.log('outside')})
 	useDragAndDrop(ref, position, setPosition, (point: {x: number, y: number}) => {
 		moveItem(id, point)
 	})
 
 	return (
-		<rect
+		<image
 			ref={ref}
 			id={id}
-			x={position.x}
-			y={position.y}
+			x={x}
+			y={y}
 			width={width}
 			height={height}
-			fill={Settings.fillColor}
-			stroke={Settings.outlineColor}
+			xlinkHref={path}
 		/>
 	)
 }
 
-export default Rectangle
+export default Image

@@ -5,7 +5,7 @@ import useDragAndDrop from "../../../../hooks/useDragAndDrop";
 import Size from "../../../../../model/utils/types/Size";
 import Point from "../../../../../model/utils/types/Point";
 
-interface RectangleProps
+interface TriangleProps
 {
 	id: string,
 	x: number,
@@ -16,7 +16,7 @@ interface RectangleProps
 	moveItem: (id: string, point: Point) => void
 }
 
-function Rectangle({ id, x, y, width, height, resizeItem, moveItem }: RectangleProps)
+function Triangle({ id, x, y, width, height, resizeItem, moveItem }: TriangleProps)
 {
 	useEffect(() => {
 		setPosition({x, y})
@@ -25,23 +25,26 @@ function Rectangle({ id, x, y, width, height, resizeItem, moveItem }: RectangleP
 	const ref = useRef(null)
 	const [position, setPosition] = useState({x: x, y: y})
 
-	useClickOutside(ref, () => {})
+	useClickOutside(ref, () => {console.log('outside')})
 	useDragAndDrop(ref, position, setPosition, (point: {x: number, y: number}) => {
 		moveItem(id, point)
 	})
 
 	return (
-		<rect
+		<polygon
 			ref={ref}
 			id={id}
 			x={position.x}
 			y={position.y}
-			width={width}
-			height={height}
+			points={
+				`${position.x} ${position.y + height},  
+				 ${position.x + width / 2} ${position.y}, 
+				 ${position.x + width} ${position.y + height} `
+			}
 			fill={Settings.fillColor}
 			stroke={Settings.outlineColor}
 		/>
 	)
 }
 
-export default Rectangle
+export default Triangle

@@ -29,10 +29,11 @@ class CAddImageCommand extends CAbstractCommand
 		if (this.IsExecuted())
 		{
 			this.shapes.pop()
+			return
 		}
 
 		// TODO: поменять ошибку
-		throw "???"
+		throw Error("???")
 	}
 
 	private shapes: Array<IItem>

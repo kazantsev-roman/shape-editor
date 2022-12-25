@@ -42,8 +42,16 @@ function View({ controller, items }: ViewProps )
 		controller.MoveItem(id, point)
 	}
 
+	const canUndo = (): boolean => {
+		return controller.CanUndo()
+	}
+
 	const undo = () => {
 		controller.Undo()
+	}
+
+	const canRedo = (): boolean => {
+		return controller.CanRedo()
 	}
 
 	const redo = () => {
@@ -70,7 +78,9 @@ function View({ controller, items }: ViewProps )
 				addEllipse={addEllipse}
 				addImage={addImage}
 				deleteItem={deleteItem}
+				canUndo={canUndo}
 				undo={undo}
+				canRedo={canRedo}
 				redo={redo}
 				upload={upload}
 				save={save}

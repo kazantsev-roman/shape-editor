@@ -1,6 +1,8 @@
-import IItem from "../../../model/Item/IItem";
-import Size from "../../../model/utils/types/Size";
-import Point from "../../../model/utils/types/Point";
+import IItem from "../../../model/Item/IItem"
+import Size from "../../../model/utils/types/Size"
+import Point from "../../../model/utils/types/Point"
+import Settings from "../../Settings"
+import { Shapes } from "./Shapes";
 
 interface CanvasProps
 {
@@ -17,24 +19,14 @@ function Canvas(
 	}: CanvasProps)
 {
 	return (
-		<svg
-			 version="1.1"
-		     baseProfile="full"
-		     width="800"
-		     height="600"
-		     xmlns="http://www.w3.org/2000/svg"
-		>
-			<rect width="100%" height="100%" fill="white" />
-			{items.map(shape => {
-				return <rect
-					key={shape.GetId()}
-					x={shape.GetLeftTopPoint().x}
-					y={shape.GetLeftTopPoint().y}
-					width={shape.GetSize().width}
-					height={shape.GetSize().height}
-					fill={"#dsljfe"}
-				/>
-			})}
+		<svg baseProfile="full" width={Settings.canvasWidth} height={Settings.canvasHeight}>
+			<rect width="100%" height="100%" fill="white"/>
+			<Shapes
+				items={items}
+				resizeItem={resizeItem}
+				moveItem={moveItem}
+			/>
+
 		</svg>
 	)
 }

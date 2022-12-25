@@ -22,6 +22,6 @@ function render() {
 	);
 }
 
-// при обновлении model вызывать render
+editor.RegisterObserver(render)
 
 render()

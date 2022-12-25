@@ -3,7 +3,6 @@ import IEditor from "../model/Editor/IEditor"
 import IItem from "../model/Item/IItem"
 import Point from "../model/utils/types/Point"
 import Size from "../model/utils/types/Size"
-import CRectangle from "../model/Item/Shape/Rectangle/CRectangle";
 
 class CController implements IController
 {
@@ -42,12 +41,22 @@ class CController implements IController
 		this.model.ResizeShape(id, size)
 	}
 
-	public Undo(): void
+	public CanUndo(): boolean
 	{
-		this.model.Redo()
+		return this.model.CanUndo()
 	}
 
-	Redo(): void
+	public Undo(): void
+	{
+		this.model.Undo()
+	}
+
+	public CanRedo(): boolean
+	{
+		return this.model.CanRedo()
+	}
+
+	public Redo(): void
 	{
 		this.model.Redo()
 	}

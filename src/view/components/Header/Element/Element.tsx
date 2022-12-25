@@ -16,7 +16,7 @@ function Element(
 )
 {
 	return (
-		<div className={styles.wrap} onClick={() => action}>
+		<div className={styles.wrap} onClick={() => {action()}}>
 			<img className={styles.image} src={imageUrl} alt={""} />
 			<div className={styles.text}>
 				{text}

@@ -14,16 +14,21 @@
 	height: 31px;
 }
 
-.image:nth-child(1) {
+.imageUndo {
 	position: absolute;
 	left: 258px;
 }
-.image:nth-child(2) {
+.imageRedo {
 	position: absolute;
 	left: 290px;
 }
 
-.image:nth-child(1):hover {
+.withOpacity
+{
+	opacity: 0.4;
+}
+
+.imageHoverUndo:hover {
 	top: 9px;
 	left: 257px;
 	width: 33px;
@@ -31,7 +36,7 @@
 	cursor: pointer;
 }
 
-.image:nth-child(2):hover {
+.imageHoverRedo:hover {
 	top: 9px;
 	left: 289px;
 	width: 33px;

@@ -25,10 +25,11 @@ class CResizeShapeCommand extends CAbstractCommand
 		if (this.IsExecuted())
 		{
 			this.shape?.Resize(this.oldSize)
+			return
 		}
 
 		// TODO: поменять ошибку
-		throw "???"
+		throw Error("???")
 	}
 
 	private shapes: Array<IItem>

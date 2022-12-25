@@ -28,14 +28,14 @@ class CShapeFactory implements IShapeFactory
 			if (!url)
 			{
 				// TODO: поменять ошибку
-				throw "NO URL"
+				throw Error("NO URL")
 			}
 
 			return new CImage(url)
 		}
 
 		// TODO: поменять ошибку
-		throw "Error shape type"
+		throw Error("Error shape type")
 	}
 }
 

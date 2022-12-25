@@ -19,7 +19,7 @@ class CDeleteShapeCommand extends CAbstractCommand
 		}
 
 		// TODO: поменять ошибку
-		throw "incorrect id"
+		throw Error("incorrect id")
 	}
 
 	protected DoUnExecute(): void
@@ -27,10 +27,11 @@ class CDeleteShapeCommand extends CAbstractCommand
 		if (this.IsExecuted() && this.shape)
 		{
 			this.shapes.splice(this.position, 0, this.shape)
+			return
 		}
 
 		// TODO: поменять ошибку
-		throw "???"
+		throw Error("???")
 	}
 
 	private shapes: Array<IItem>

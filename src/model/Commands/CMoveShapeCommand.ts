@@ -25,10 +25,11 @@ class CMoveShapeCommand extends CAbstractCommand
 		if (this.IsExecuted())
 		{
 			this.shape?.Move(this.oldPoint)
+			return
 		}
 
 		// TODO: поменять ошибку
-		throw "???"
+		throw Error("???")
 	}
 
 	private shapes: Array<IItem>
