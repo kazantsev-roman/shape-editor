@@ -21,6 +21,7 @@ function useDragAndDrop(
 
 	const MouseDownListener = (event: MouseEvent) => {
 		startPosition = {x: event.pageX, y: event.pageY}
+		endPosition = position
 
 		document.addEventListener("mousemove", MouseMoveListener)
 		document.addEventListener("mouseup", MouseUpListener)
@@ -46,10 +47,6 @@ function useDragAndDrop(
 
 			onDrag(newPosition)
 			endPosition = newPosition
-		}
-		else
-		{
-			onDrag(startPosition)
 		}
 	}
 

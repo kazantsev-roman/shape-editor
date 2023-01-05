@@ -1,6 +1,7 @@
 import styles from "./Header.module.css"
 import Button from "./Button/Button"
 import Element from "./Element/Element"
+import ElementImage from "./Element/ElementImage"
 
 interface HeaderProps
 {
@@ -8,7 +9,6 @@ interface HeaderProps
 	addRectangle: () => void,
 	addEllipse: () => void,
 	addImage: (path: string) => void,
-	deleteItem: (id: string) => void,
 	canUndo: () => boolean,
 	undo: () => void,
 	canRedo: () => boolean,
@@ -24,7 +24,6 @@ function Header(
 		addRectangle,
 		addEllipse,
 		addImage,
-		deleteItem,
 		canUndo,
 		undo,
 		canRedo,
@@ -42,16 +41,11 @@ function Header(
 				<Element imageUrl={"images/download.png"} text={"Save"} action={save}/>
 				<Element imageUrl={"images/download.png"} text={"Save as"} action={saveAs}/>
 			</Button>
-			<Button text={"Edit"} indent={90}>
-				<Element imageUrl={"images/back-arrow.png"} text={"Undo"} action={undo}/>
-				<Element imageUrl={"images/forward.png"} text={"Redo"} action={redo}/>
-				<Element imageUrl={"images/trash.png"} text={"Delete"} action={deleteItem}/>
-			</Button>
-			<Button text={"Insert"} indent={170}>
+			<Button text={"Insert"} indent={90}>
 				<Element imageUrl={"images/triangle-shape.png"} text={"Triangle"} action={addTriangle}/>
 				<Element imageUrl={"images/stop.png"} text={"Rectangle"} action={addRectangle}/>
 				<Element imageUrl={"images/circle.png"} text={"Ellipse"} action={addEllipse}/>
-				<Element imageUrl={"images/image.png"} text={"Image"} action={addImage}/>
+				<ElementImage imageUrl={"images/image.png"} text={"Image"} action={addImage}/>
 			</Button>
 
 			<div className={styles.history}>

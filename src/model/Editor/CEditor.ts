@@ -114,7 +114,7 @@ class CEditor implements IEditor
 		this.observers.filter((element: IObserver) => element !== observer)
 	}
 
-	NotifyObservers(): void
+	private NotifyObservers(): void
 	{
 		this.observers.forEach(observer => observer())
 	}

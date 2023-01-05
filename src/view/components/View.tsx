@@ -26,7 +26,7 @@ function View({ controller, items }: ViewProps )
 		controller.AddShape("Ellipse")
 	}
 
-	const addImage = (path: string) => {
+		const addImage = (path: string) => {
 		controller.AddImage(path)
 	}
 
@@ -77,7 +77,6 @@ function View({ controller, items }: ViewProps )
 				addRectangle={addRectangle}
 				addEllipse={addEllipse}
 				addImage={addImage}
-				deleteItem={deleteItem}
 				canUndo={canUndo}
 				undo={undo}
 				canRedo={canRedo}
