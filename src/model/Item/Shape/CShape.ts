@@ -15,9 +15,8 @@ abstract class CShape implements IItem
 	}
 
 	abstract GetType(): string
+
 	abstract GetId(): string
-
-
 
 	GetFrame(): Frame
 	{

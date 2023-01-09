@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from "react"
 
-type DragHandler = (position:{x: number, y: number} ) => void
+type DragHandler = (position: { x: number, y: number }) => void
 
 function useDragAndDrop<T extends Element>(
 	ref: RefObject<T>,
@@ -10,17 +10,19 @@ function useDragAndDrop<T extends Element>(
 )
 {
 	let move: boolean = false
-	let pagePosition: {x: number, y: number}
-	let currentPosition: {x: number, y: number}
+	let pagePosition: { x: number, y: number }
+	let currentPosition: { x: number, y: number }
 
 	useEffect(() => {
-		ref.current?.addEventListener("mousedown", MouseDownListener)
+		const element = ref.current
+		element?.addEventListener("mousedown", MouseDownListener)
 		return () => {
-			ref.current?.removeEventListener("mousedown", MouseDownListener)
+			element?.removeEventListener("mousedown", MouseDownListener)
 		}
 	})
 
-	const MouseDownListener = (event: Event) => {
+	const MouseDownListener = (event: Event) =>
+	{
 		move = false
 
 		pagePosition = {
@@ -33,7 +35,8 @@ function useDragAndDrop<T extends Element>(
 		document.addEventListener("mouseup", MouseUpListener)
 	}
 
-	const MouseMoveListener = (event: MouseEvent) => {
+	const MouseMoveListener = (event: MouseEvent) =>
+	{
 		move = true
 
 		const position = {x: event.pageX - pagePosition.x, y: event.pageY - pagePosition.y}
@@ -41,7 +44,8 @@ function useDragAndDrop<T extends Element>(
 		currentPosition = position
 	}
 
-	const MouseUpListener = () => {
+	const MouseUpListener = () =>
+	{
 		move && onDragEnd?.(currentPosition)
 
 		document.removeEventListener("mousemove", MouseMoveListener)

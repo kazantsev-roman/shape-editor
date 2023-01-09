@@ -12,7 +12,7 @@ interface ViewProps
 	items: Array<IItem>
 }
 
-function View({ controller, items }: ViewProps )
+function View({controller, items}: ViewProps)
 {
 	const addTriangle = () => {
 		controller.AddShape("Triangle")
@@ -26,7 +26,7 @@ function View({ controller, items }: ViewProps )
 		controller.AddShape("Ellipse")
 	}
 
-		const addImage = (path: string) => {
+	const addImage = (path: string) => {
 		controller.AddImage(path)
 	}
 

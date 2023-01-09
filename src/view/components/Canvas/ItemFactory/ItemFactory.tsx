@@ -4,9 +4,9 @@ import IItem from "../../../../model/Item/IItem"
 import Triangle from "../Elements/Items/Triangle/Triangle"
 import Rectangle from "../Elements/Items/Rectangle/Rectangle"
 import Ellipse from "../Elements/Items/Ellipse/Ellipse"
-import isImage from "../../../../model/utils/typeGuards/isImage"
 import Image from "../Elements/Items/Image/Image"
 import Item from "../Elements/Item/Item"
+import isImage from "../../../../model/utils/typeGuards/isImage"
 
 interface ItemFactoryProps
 {

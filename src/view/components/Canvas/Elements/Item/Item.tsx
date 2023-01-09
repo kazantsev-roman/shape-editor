@@ -4,7 +4,7 @@ import Point from "../../../../../model/utils/types/Point"
 import Frame from "../../../../../model/utils/types/Frame"
 import useItemDragAndDrop from "../../../../hooks/useItemDragAndDrop"
 import useClickOutside from "../../../../hooks/useClickOutside"
-import addPropsToChildren from "../../../../utils/addPropsToChildren";
+import addPropsToChildren from "../../../../utils/addPropsToChildren"
 
 interface ItemProps
 {
@@ -15,7 +15,7 @@ interface ItemProps
 	children: JSX.Element
 }
 
-function Item({ id, frame, resizeItem, moveItem,children }: ItemProps)
+function Item({id, frame, resizeItem, moveItem, children}: ItemProps)
 {
 	const ref = useRef<SVGGElement>(null)
 	const [position, setPosition] = useState({x: frame.leftTopPoint.x, y: frame.leftTopPoint.y})
@@ -30,7 +30,7 @@ function Item({ id, frame, resizeItem, moveItem,children }: ItemProps)
 
 	return (
 		<g ref={ref}>
-			{addPropsToChildren(children, {frame: {leftTopPoint: position, width: size.width, height: size.height}}) }
+			{addPropsToChildren(children, {frame: {leftTopPoint: position, width: size.width, height: size.height}})}
 		</g>
 	)
 }

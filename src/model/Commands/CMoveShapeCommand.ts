@@ -22,7 +22,7 @@ class CMoveShapeCommand extends CAbstractCommand
 
 	protected DoUnExecute(): void
 	{
-		if (this.IsExecuted())
+		if(this.IsExecuted())
 		{
 			this.shape?.Move(this.oldPoint)
 			return

@@ -12,7 +12,7 @@ class CDeleteShapeCommand extends CAbstractCommand
 
 	protected DoExecute(): void
 	{
-		if (this.position > -1)
+		if(this.position > -1)
 		{
 			this.shape = this.shapes[this.position]
 			this.shapes.splice(this.position, 1)
@@ -25,7 +25,7 @@ class CDeleteShapeCommand extends CAbstractCommand
 
 	protected DoUnExecute(): void
 	{
-		if (this.IsExecuted() && this.shape)
+		if(this.IsExecuted() && this.shape)
 		{
 			this.shapes.splice(this.position, 0, this.shape)
 			return

@@ -1,6 +1,7 @@
 interface ISerialization
 {
 	Serialization(): void
+
 	Deserialization(): void
 }
 

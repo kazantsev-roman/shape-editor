@@ -1,12 +1,13 @@
+import { v4 as uuid } from "uuid"
 import IImage from "./IImage"
 import Frame from "../../utils/types/Frame"
 import Size from "../../utils/types/Size"
 import Point from "../../utils/types/Point"
-import { v4 as uuid } from "uuid"
 
 class CImage implements IImage
 {
-	constructor(path: string) {
+	constructor(path: string)
+	{
 		this.path = path
 		this.id = uuid()
 		this.frame = {

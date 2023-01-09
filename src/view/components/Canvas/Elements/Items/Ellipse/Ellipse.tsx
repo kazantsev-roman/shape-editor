@@ -7,7 +7,7 @@ interface EllipseProps
 	frame: Frame,
 }
 
-function Ellipse({ id, frame }: EllipseProps)
+function Ellipse({id, frame}: EllipseProps)
 {
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y

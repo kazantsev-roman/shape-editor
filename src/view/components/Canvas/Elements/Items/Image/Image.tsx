@@ -7,9 +7,8 @@ interface ImageProps
 	frame: Frame,
 }
 
-function Image({ id, path, frame }: ImageProps)
+function Image({id, path, frame}: ImageProps)
 {
-
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y
 	const width = frame.width

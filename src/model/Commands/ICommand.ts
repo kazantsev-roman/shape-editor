@@ -1,6 +1,7 @@
 interface ICommand
 {
 	Execute(): void
+
 	UnExecute(): void
 }
 

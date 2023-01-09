@@ -11,21 +11,21 @@ class CShapeFactory implements IShapeFactory
 	CreateShape(type: string): IItem
 	CreateShape(type: string, url?: string): IItem
 	{
-		if (type === "Rectangle")
+		if(type === "Rectangle")
 		{
 			return new CRectangle()
 		}
-		if (type === "Triangle")
+		if(type === "Triangle")
 		{
 			return new CTriangle()
 		}
-		if (type === "Ellipse")
+		if(type === "Ellipse")
 		{
 			return new CEllipse()
 		}
-		if (type === "Image")
+		if(type === "Image")
 		{
-			if (!url)
+			if(!url)
 			{
 				// TODO: поменять ошибку
 				throw Error("NO URL")

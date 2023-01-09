@@ -20,6 +20,7 @@ abstract class CAbstractCommand implements ICommand
 	}
 
 	protected abstract DoExecute(): void;
+
 	protected abstract DoUnExecute(): void
 
 	private executed = false

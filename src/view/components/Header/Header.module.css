@@ -18,13 +18,13 @@
 	position: absolute;
 	left: 180px;
 }
+
 .imageRedo {
 	position: absolute;
 	left: 212px;
 }
 
-.withOpacity
-{
+.withOpacity {
 	opacity: 0.4;
 }
 

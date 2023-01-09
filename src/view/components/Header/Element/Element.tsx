@@ -7,17 +7,11 @@ interface ElementProps
 	action: (...args: any) => void
 }
 
-function Element(
-	{
-		imageUrl,
-		text,
-		action
-	}: ElementProps
-)
+function Element({imageUrl, text, action}: ElementProps)
 {
 	return (
 		<div className={styles.wrap} onClick={() => {action()}}>
-			<img className={styles.image} src={imageUrl} alt={""} />
+			<img className={styles.image} src={imageUrl} alt={""}/>
 			<div className={styles.text}>
 				{text}
 			</div>

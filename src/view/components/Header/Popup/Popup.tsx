@@ -1,5 +1,5 @@
-import styles from "./Popup.module.css"
 import { useEffect } from "react"
+import styles from "./Popup.module.css"
 
 interface PopupProps
 {
@@ -9,17 +9,10 @@ interface PopupProps
 	children: Array<JSX.Element>,
 }
 
-function Popup(
-	{
-		visible,
-		indent,
-		setColor,
-		children
-	}: PopupProps
-)
+function Popup({visible, indent, setColor, children}: PopupProps)
 {
 	useEffect(() => {
-		if (visible)
+		if(visible)
 		{
 			setColor("#7e8a97")
 		}

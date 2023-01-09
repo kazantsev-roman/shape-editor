@@ -18,7 +18,7 @@ class CAddShapeCommand extends CAbstractCommand
 
 	protected DoUnExecute(): void
 	{
-		if (this.IsExecuted())
+		if(this.IsExecuted())
 		{
 			this.shapes.pop()
 			return

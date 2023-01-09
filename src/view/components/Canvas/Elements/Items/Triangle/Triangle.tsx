@@ -7,9 +7,8 @@ interface TriangleProps
 	frame: Frame,
 }
 
-function Triangle({ id, frame}: TriangleProps)
+function Triangle({id, frame}: TriangleProps)
 {
-
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y
 	const width = frame.width

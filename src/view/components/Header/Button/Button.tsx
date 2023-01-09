@@ -1,6 +1,6 @@
+import { useState } from "react"
 import styles from "./Button.module.css"
 import Popup from "../Popup/Popup"
-import { useState } from "react"
 import useComponentVisible from "../../../hooks/useComponentVisible"
 
 interface ButtonProps
@@ -10,15 +10,9 @@ interface ButtonProps
 	children: Array<JSX.Element>
 }
 
-function Button(
-	{
-		text,
-		indent,
-		children
-	}: ButtonProps
-)
+function Button({text, indent, children}: ButtonProps)
 {
-	const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible<HTMLDivElement>(false)
+	const {ref, isComponentVisible, setIsComponentVisible} = useComponentVisible<HTMLDivElement>(false)
 	const [color, setColor] = useState("#cbaf87")
 
 	return (
@@ -32,7 +26,7 @@ function Button(
 				setColor("#7e8a97")
 			}}
 			onMouseLeave={() => {
-				if (!isComponentVisible)
+				if(!isComponentVisible)
 				{
 					setColor("#cbaf87")
 				}

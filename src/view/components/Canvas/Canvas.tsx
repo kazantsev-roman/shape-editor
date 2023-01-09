@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react"
 import IItem from "../../../model/Item/IItem"
 import Size from "../../../model/utils/types/Size"
 import Point from "../../../model/utils/types/Point"
-import Settings from "../../Settings"
 import Frame from "./Elements/Frame/Frame"
 import ItemFactory from "./ItemFactory/ItemFactory"
-import { useEffect, useState } from "react";
+import Settings from "../../Settings"
 
 interface CanvasProps
 {
@@ -24,9 +24,11 @@ function Canvas(
 {
 	const [selectItem, setSelectItem] = useState<IItem | null>()
 
-	const KeyUpListener = (event: KeyboardEvent) => {
+	const KeyUpListener = (event: KeyboardEvent) =>
+	{
 		console.log(event.key)
-		if(event.key === "Delete"){
+		if(event.key === "Delete")
+		{
 			selectItem && deleteItem(selectItem.GetId())
 		}
 	}
@@ -50,7 +52,7 @@ function Canvas(
 					moveItem={moveItem}
 				/>
 			})}
-			<Frame  height={100} width={100} x={10} y={10}/>
+			<Frame height={100} width={100} x={10} y={10}/>
 		</svg>
 	)
 }

@@ -6,7 +6,7 @@ interface FrameProps
 	height: number
 }
 
-function Frame({ x, y, width, height, }: FrameProps)
+function Frame({x, y, width, height,}: FrameProps)
 {
 	return (
 		<rect

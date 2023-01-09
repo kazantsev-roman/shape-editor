@@ -7,9 +7,8 @@ interface RectangleProps
 	frame: Frame,
 }
 
-function Rectangle({ id, frame }: RectangleProps)
+function Rectangle({id, frame}: RectangleProps)
 {
-
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y
 	const width = frame.width

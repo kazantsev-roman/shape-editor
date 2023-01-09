@@ -1,6 +1,6 @@
-import CAbstractCommand from "./CAbstractCommand"
 import IItem from "../Item/IItem"
 import Size from "../utils/types/Size"
+import CAbstractCommand from "./CAbstractCommand"
 
 class CResizeShapeCommand extends CAbstractCommand
 {
@@ -22,7 +22,7 @@ class CResizeShapeCommand extends CAbstractCommand
 
 	protected DoUnExecute(): void
 	{
-		if (this.IsExecuted())
+		if(this.IsExecuted())
 		{
 			this.shape?.Resize(this.oldSize)
 			return

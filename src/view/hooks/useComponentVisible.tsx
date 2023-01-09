@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef, Ref } from 'react'
 
-export default function useComponentVisible<T extends Element>(initialIsVisible: boolean) {
+export default function useComponentVisible<T extends Element>(initialIsVisible: boolean)
+{
 	const [isComponentVisible, setIsComponentVisible] = useState<boolean>(initialIsVisible)
 	const ref: Ref<T> | undefined = useRef(null)
 
-	const handleClickOutside = (event: MouseEvent) => {
-		if (ref.current && !ref.current.contains(event.target as Node)) {
+	const handleClickOutside = (event: MouseEvent) =>
+	{
+		if(ref.current && !ref.current.contains(event.target as Node))
+		{
 			setIsComponentVisible(false)
 		}
 	};
@@ -17,5 +20,5 @@ export default function useComponentVisible<T extends Element>(initialIsVisible:
 		};
 	});
 
-	return { ref, isComponentVisible, setIsComponentVisible }
+	return {ref, isComponentVisible, setIsComponentVisible}
 }

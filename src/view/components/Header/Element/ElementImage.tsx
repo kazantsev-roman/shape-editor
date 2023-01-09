@@ -1,5 +1,5 @@
-import styles from "./Element.module.css"
 import { useRef } from "react"
+import styles from "./Element.module.css"
 
 interface ElementProps
 {
@@ -8,12 +8,7 @@ interface ElementProps
 	action: (...args: any) => void
 }
 
-function ElementImage(
-	{
-		imageUrl,
-		text
-	}: ElementProps
-)
+function ElementImage({imageUrl, text}: ElementProps)
 {
 	const inputReference = useRef<HTMLInputElement>(null)
 
@@ -33,7 +28,7 @@ function ElementImage(
 				ref={inputReference}
 				onChange={fileUploadInputChange}
 			/>
-			<img className={styles.image} src={imageUrl} alt={""} />
+			<img className={styles.image} src={imageUrl} alt={""}/>
 			<div className={styles.text}>
 				{text}
 			</div>
