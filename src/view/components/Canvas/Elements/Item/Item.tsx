@@ -1,33 +1,38 @@
 import { useEffect, useRef, useState } from "react"
-import useClickOutside from "../../../../hooks/useClickOutside"
 import Size from "../../../../../model/utils/types/Size"
 import Point from "../../../../../model/utils/types/Point"
+import Frame from "../../../../../model/utils/types/Frame"
 import useItemDragAndDrop from "../../../../hooks/useItemDragAndDrop"
+import useClickOutside from "../../../../hooks/useClickOutside"
+import addPropsToChildren from "../../../../utils/addPropsToChildren";
 
 interface ItemProps
 {
 	id: string,
-	x: number,
-	y: number,
-	width: number,
-	height: number,
+	frame: Frame
 	resizeItem: (id: string, size: Size) => void,
-	moveItem: (id: string, point: Point) => void
+	moveItem: (id: string, point: Point) => void,
+	children: JSX.Element
 }
 
-function Item({ id, x, y, width, height, resizeItem, moveItem }: ItemProps)
+function Item({ id, frame, resizeItem, moveItem,children }: ItemProps)
 {
-	useEffect(() => {
-		setPosition({x, y})
-	}, [x, y])
+	const ref = useRef<SVGGElement>(null)
+	const [position, setPosition] = useState({x: frame.leftTopPoint.x, y: frame.leftTopPoint.y})
+	const [size, setSize] = useState({width: frame.width, height: frame.height})
 
-	const ref = useRef<SVGElement>(null)
-	const [position, setPosition] = useState({x: x, y: y})
+	useEffect(() => {
+		setPosition({x: frame.leftTopPoint.x, y: frame.leftTopPoint.y})
+	}, [frame.leftTopPoint.x, frame.leftTopPoint.y])
 
 	useClickOutside(ref, () => {console.log('outside')})
-	useItemDragAndDrop<SVGElement>(ref, id, position, moveItem)
+	useItemDragAndDrop<SVGGElement>(ref, id, position, setPosition, moveItem)
 
-	return (<></>)
+	return (
+		<g ref={ref}>
+			{addPropsToChildren(children, {frame: {leftTopPoint: position, width: size.width, height: size.height}}) }
+		</g>
+	)
 }
 
-export default Element
+export default Item

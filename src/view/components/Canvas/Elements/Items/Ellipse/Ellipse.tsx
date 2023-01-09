@@ -1,17 +1,13 @@
 import Settings from "../../../../../Settings"
-import Size from "../../../../../../model/utils/types/Size"
-import Point from "../../../../../../model/utils/types/Point"
 import Frame from "../../../../../../model/utils/types/Frame"
 
 interface EllipseProps
 {
 	id: string,
 	frame: Frame,
-	resizeItem: (id: string, size: Size) => void
-	moveItem: (id: string, point: Point) => void
 }
 
-function Ellipse({ id, frame, resizeItem, moveItem }: EllipseProps)
+function Ellipse({ id, frame }: EllipseProps)
 {
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y

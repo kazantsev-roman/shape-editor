@@ -6,6 +6,7 @@ import Rectangle from "../Elements/Items/Rectangle/Rectangle"
 import Ellipse from "../Elements/Items/Ellipse/Ellipse"
 import isImage from "../../../../model/utils/typeGuards/isImage"
 import Image from "../Elements/Items/Image/Image"
+import Item from "../Elements/Item/Item"
 
 interface ItemFactoryProps
 {
@@ -16,44 +17,49 @@ interface ItemFactoryProps
 
 function ItemFactory({item, resizeItem, moveItem}: ItemFactoryProps)
 {
+	let itemElement: JSX.Element | null = null
+
 	switch(item.GetType())
 	{
 	case "Triangle":
-		return <Triangle
+		itemElement = <Triangle
 			id={item.GetId()}
 			frame={item.GetFrame()}
-			resizeItem={resizeItem}
-			moveItem={moveItem}
 		/>
+		break
 	case "Rectangle":
-		return <Rectangle
+		itemElement = <Rectangle
 			id={item.GetId()}
 			frame={item.GetFrame()}
-			resizeItem={resizeItem}
-			moveItem={moveItem}
 		/>
+		break
 	case "Ellipse":
-		return <Ellipse
+		itemElement = <Ellipse
 			id={item.GetId()}
 			frame={item.GetFrame()}
-			resizeItem={resizeItem}
-			moveItem={moveItem}
 		/>
+		break
 	case "Image":
 		if(isImage(item))
 		{
-			return <Image
+			itemElement = <Image
 				id={item.GetId()}
 				path={item.GetPath()}
 				frame={item.GetFrame()}
-				resizeItem={resizeItem}
-				moveItem={moveItem}
 			/>
+			break
 		}
-		return null
-	default:
-		return null
 	}
+
+	return (
+		<>
+			{itemElement &&
+                <Item id={item.GetId()} frame={item.GetFrame()} resizeItem={resizeItem} moveItem={moveItem}>
+					{itemElement}
+                </Item>
+			}
+		</>
+	)
 }
 
 export default ItemFactory

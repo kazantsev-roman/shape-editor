@@ -1,5 +1,3 @@
-import Size from "../../../../../../model/utils/types/Size"
-import Point from "../../../../../../model/utils/types/Point"
 import Frame from "../../../../../../model/utils/types/Frame"
 
 interface ImageProps
@@ -7,11 +5,9 @@ interface ImageProps
 	id: string,
 	path: string,
 	frame: Frame,
-	resizeItem: (id: string, size: Size) => void
-	moveItem: (id: string, point: Point) => void
 }
 
-function Image({ id, path, frame, resizeItem, moveItem }: ImageProps)
+function Image({ id, path, frame }: ImageProps)
 {
 
 	const x = frame.leftTopPoint.x
