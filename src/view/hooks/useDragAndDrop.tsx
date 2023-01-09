@@ -1,61 +1,51 @@
 import { RefObject, useEffect } from "react"
-import Settings from "../Settings";
 
-function useDragAndDrop(
-	ref: RefObject<SVGElement>,
-	position: {x: number, y: number},
-	onDrag: (position: {x: number, y: number}) => void,
-	onDragEnd: (point: {x: number, y: number}) => void,
+type DragHandler = (position:{x: number, y: number} ) => void
+
+function useDragAndDrop<T extends Element>(
+	ref: RefObject<T>,
+	onDragStart?: DragHandler,
+	onDrag?: DragHandler,
+	onDragEnd?: DragHandler,
 )
 {
-	let startPosition = {x: 0, y: 0}
-	let endPosition = {x: 0, y: 0}
+	let move: boolean = false
+	let pagePosition: {x: number, y: number}
+	let currentPosition: {x: number, y: number}
 
 	useEffect(() => {
-		const element = ref.current
-		element?.addEventListener("mousedown", MouseDownListener)
+		ref.current?.addEventListener("mousedown", MouseDownListener)
 		return () => {
-			element?.removeEventListener("mousedown", MouseDownListener)
+			ref.current?.removeEventListener("mousedown", MouseDownListener)
 		}
 	})
 
-	const MouseDownListener = (event: MouseEvent) => {
-		startPosition = {x: event.pageX, y: event.pageY}
-		endPosition = position
+	const MouseDownListener = (event: Event) => {
+		move = false
+
+		pagePosition = {
+			x: (event as MouseEvent).pageX,
+			y: (event as MouseEvent).pageY
+		}
+		onDragStart?.(pagePosition)
 
 		document.addEventListener("mousemove", MouseMoveListener)
 		document.addEventListener("mouseup", MouseUpListener)
 	}
 
 	const MouseMoveListener = (event: MouseEvent) => {
-		const delta = {x: event.pageX - startPosition.x, y: event.pageY - startPosition.y}
+		move = true
 
-		if (ref.current?.getBoundingClientRect())
-		{
-			const newPosition = {
-				x: position.x + delta.x < 0
-					? 0
-					: position.x + delta.x > Settings.canvasWidth - ref.current?.getBoundingClientRect().width
-						? Settings.canvasWidth - ref.current?.getBoundingClientRect().width
-						: position.x + delta.x,
-				y: position.y + delta.y < 0
-					? 0
-					: position.y + delta.y > Settings.canvasHeight - ref.current?.getBoundingClientRect().height
-						? Settings.canvasHeight - ref.current?.getBoundingClientRect().height
-						: position.y + delta.y
-			}
-
-			onDrag(newPosition)
-			endPosition = newPosition
-		}
+		const position = {x: event.pageX - pagePosition.x, y: event.pageY - pagePosition.y}
+		onDrag?.(position)
+		currentPosition = position
 	}
 
 	const MouseUpListener = () => {
-		onDragEnd(endPosition)
+		move && onDragEnd?.(currentPosition)
 
 		document.removeEventListener("mousemove", MouseMoveListener)
 		document.removeEventListener("mouseup", MouseUpListener)
-
 	}
 }
 

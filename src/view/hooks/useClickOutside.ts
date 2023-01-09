@@ -1,7 +1,7 @@
 import { useEffect, RefObject } from 'react'
 
-function useClickOutside(
-	ref: RefObject<SVGRectElement | SVGEllipseElement | SVGPolygonElement | SVGImageElement | null>,
+function useClickOutside<T extends Element>(
+	ref: RefObject<T>,
 	setClickOutside: () => void
 )
 {
