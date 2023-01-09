@@ -18,7 +18,7 @@ function Button(
 	}: ButtonProps
 )
 {
-	const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false)
+	const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible<HTMLDivElement>(false)
 	const [color, setColor] = useState("#cbaf87")
 
 	return (

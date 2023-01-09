@@ -31,17 +31,9 @@ class CImage implements IImage
 		return this.id
 	}
 
-	GetLeftTopPoint(): Point
+	GetFrame(): Frame
 	{
-		return this.frame.leftTopPoint
-	}
-
-	GetSize(): Size
-	{
-		return {
-			height: this.frame.height,
-			width: this.frame.width
-		}
+		return this.frame
 	}
 
 	Move(point: Point): void

@@ -1,13 +1,13 @@
 import Point from "../utils/types/Point"
 import Size from "../utils/types/Size"
+import Frame from "../utils/types/Frame";
 
 interface IItem
 {
 	GetId(): string
 	Resize(size: Size): void
-	GetSize(): Size
 	Move(point: Point): void
-	GetLeftTopPoint(): Point
+	GetFrame(): Frame
 	GetType(): string
 }
 

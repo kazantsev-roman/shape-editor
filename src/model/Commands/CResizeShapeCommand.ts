@@ -15,7 +15,7 @@ class CResizeShapeCommand extends CAbstractCommand
 	protected DoExecute(): void
 	{
 		this.oldSize = this.shape
-			? this.shape.GetSize()
+			? {width: this.shape.GetFrame().width, height: this.shape.GetFrame().height}
 			: this.oldSize
 		this.shape?.Resize(this.newSize)
 	}

@@ -88,6 +88,7 @@ function View({ controller, items }: ViewProps )
 			<div className={styles.canvasWrap}>
 				<Canvas
 					items={items}
+					deleteItem={deleteItem}
 					resizeItem={resizeItem}
 					moveItem={moveItem}
 				/>

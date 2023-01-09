@@ -15,7 +15,7 @@ class CMoveShapeCommand extends CAbstractCommand
 	protected DoExecute(): void
 	{
 		this.oldPoint = this.shape
-			? this.shape.GetLeftTopPoint()
+			? this.shape.GetFrame().leftTopPoint
 			: this.oldPoint
 		this.shape?.Move(this.newPoint)
 	}

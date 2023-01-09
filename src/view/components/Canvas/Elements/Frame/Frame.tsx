@@ -1,17 +1,15 @@
 interface FrameProps
 {
-	id: string,
 	x: number,
 	y: number,
 	width: number,
 	height: number
 }
 
-function Frame({ id, x, y, width, height, }: FrameProps)
+function Frame({ x, y, width, height, }: FrameProps)
 {
 	return (
 		<rect
-			id={id}
 			x={x - 5}
 			y={y - 5}
 			width={width + 10}

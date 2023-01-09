@@ -17,17 +17,11 @@ abstract class CShape implements IItem
 	abstract GetType(): string
 	abstract GetId(): string
 
-	GetLeftTopPoint(): Point
-	{
-		return this.frame.leftTopPoint
-	}
 
-	GetSize(): Size
+
+	GetFrame(): Frame
 	{
-		return {
-			height: this.frame.height,
-			width: this.frame.width
-		}
+		return this.frame
 	}
 
 	Move(point: Point): void
