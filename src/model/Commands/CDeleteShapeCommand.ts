@@ -16,6 +16,7 @@ class CDeleteShapeCommand extends CAbstractCommand
 		{
 			this.shape = this.shapes[this.position]
 			this.shapes.splice(this.position, 1)
+			return
 		}
 
 		// TODO: поменять ошибку
