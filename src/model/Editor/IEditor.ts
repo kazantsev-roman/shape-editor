@@ -5,9 +5,9 @@ import Point from "../utils/types/Point"
 
 interface IEditor extends IObservable
 {
-	GetShapes(): Array<IItem>
+	GetItems(): Array<IItem>
 
-	AddShape(type: string, path: string): void
+	AddShape(type: string, file: string): void
 
 	AddShape(type: string): void
 
@@ -24,12 +24,6 @@ interface IEditor extends IObservable
 	CanRedo(): boolean
 
 	Redo(): void
-
-	Upload(path: string): void
-
-	Save(path: string, filename: string): void
-
-	Save(filename: string): void
 }
 
 export default IEditor

@@ -8,7 +8,7 @@ interface ElementProps
 	action: (...args: any) => void
 }
 
-function ElementImage({imageUrl, text}: ElementProps)
+function ElementImage({imageUrl, text, action}: ElementProps)
 {
 	const inputReference = useRef<HTMLInputElement>(null)
 
@@ -17,7 +17,7 @@ function ElementImage({imageUrl, text}: ElementProps)
 	}
 
 	const fileUploadInputChange = (event: any) => {
-		// TODO: error при отмене
+		action(URL.createObjectURL(event.target.files[0]));
 	}
 
 	return (
@@ -25,6 +25,7 @@ function ElementImage({imageUrl, text}: ElementProps)
 			<input
 				type="file"
 				hidden
+				accept="image/png, image/gif, image/jpeg"
 				ref={inputReference}
 				onChange={fileUploadInputChange}
 			/>

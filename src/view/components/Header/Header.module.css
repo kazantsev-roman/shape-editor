@@ -16,12 +16,12 @@
 
 .imageUndo {
 	position: absolute;
-	left: 180px;
+	left: 105px;
 }
 
 .imageRedo {
 	position: absolute;
-	left: 212px;
+	left: 137px;
 }
 
 .withOpacity {
@@ -30,7 +30,7 @@
 
 .imageHoverUndo:hover {
 	top: 9px;
-	left: 179px;
+	left: 104px;
 	width: 33px;
 	height: 33px;
 	cursor: pointer;
@@ -38,7 +38,7 @@
 
 .imageHoverRedo:hover {
 	top: 9px;
-	left: 211px;
+	left: 136px;
 	width: 33px;
 	height: 33px;
 	cursor: pointer;

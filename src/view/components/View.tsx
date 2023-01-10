@@ -26,8 +26,8 @@ function View({controller, items}: ViewProps)
 		controller.AddShape("Ellipse")
 	}
 
-	const addImage = (path: string) => {
-		controller.AddImage(path)
+	const addImage = (object: string) => {
+		controller.AddImage(object)
 	}
 
 	const deleteItem = (id: string) => {
@@ -58,18 +58,6 @@ function View({controller, items}: ViewProps)
 		controller.Redo()
 	}
 
-	const upload = (path: string) => {
-		controller.Upload(path)
-	}
-
-	const save = (filename: string) => {
-		controller.Save(filename)
-	}
-
-	const saveAs = (filename: string, path: string) => {
-		controller.Save(filename, path)
-	}
-
 	return (
 		<div>
 			<Header
@@ -81,9 +69,6 @@ function View({controller, items}: ViewProps)
 				undo={undo}
 				canRedo={canRedo}
 				redo={redo}
-				upload={upload}
-				save={save}
-				saveAs={saveAs}
 			/>
 			<div className={styles.canvasWrap}>
 				<Canvas

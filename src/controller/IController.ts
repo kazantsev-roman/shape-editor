@@ -23,10 +23,6 @@ interface IController
 	CanRedo(): boolean
 
 	Redo(): void
-
-	Upload(path: string): void
-
-	Save(filename: string, path?: string): void
 }
 
 export default IController

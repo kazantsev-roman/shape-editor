@@ -18,7 +18,7 @@ function render()
 {
 	root.render(
 		<React.StrictMode>
-			<View items={editor.GetShapes()} controller={controller}/>
+			<View items={editor.GetItems()} controller={controller}/>
 		</React.StrictMode>
 	);
 }

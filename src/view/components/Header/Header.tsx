@@ -14,12 +14,9 @@ interface HeaderProps
 	undo: () => void,
 	canRedo: () => boolean,
 	redo: () => void,
-	upload: (path: string) => void,
-	save: (filename: string) => void,
-	saveAs: (filename: string, path: string) => void,
 }
 
-function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo, canRedo, redo, upload, save, saveAs}: HeaderProps)
+function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo, canRedo, redo}: HeaderProps)
 {
 	const KeyUpListener = (event: KeyboardEvent) =>
 	{
@@ -48,12 +45,7 @@ function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo,
 
 	return (
 		<div className={styles.wrap}>
-			<Button text={"File"} indent={15}>
-				<Element imageUrl={"images/folder.png"} text={"Open"} action={upload}/>
-				<Element imageUrl={"images/download.png"} text={"Save"} action={save}/>
-				<Element imageUrl={"images/download.png"} text={"Save as"} action={saveAs}/>
-			</Button>
-			<Button text={"Insert"} indent={90}>
+			<Button text={"Insert"} indent={15}>
 				<Element imageUrl={"images/triangle.png"} text={"Triangle"} action={addTriangle}/>
 				<Element imageUrl={"images/rectangle.png"} text={"Rectangle"} action={addRectangle}/>
 				<Element imageUrl={"images/ellipse.png"} text={"Ellipse"} action={addEllipse}/>

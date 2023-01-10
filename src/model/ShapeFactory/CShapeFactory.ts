@@ -3,13 +3,10 @@ import IShapeFactory from "./IShapeFactory"
 import CRectangle from "../Item/Shape/Rectangle/CRectangle"
 import CTriangle from "../Item/Shape/Triangle/CTriangle"
 import CEllipse from "../Item/Shape/Ellipse/CEllipse"
-import CImage from "../Item/Image/CImage"
 
 class CShapeFactory implements IShapeFactory
 {
-	CreateShape(type: string, url: string): IItem
 	CreateShape(type: string): IItem
-	CreateShape(type: string, url?: string): IItem
 	{
 		if(type === "Rectangle")
 		{
@@ -22,16 +19,6 @@ class CShapeFactory implements IShapeFactory
 		if(type === "Ellipse")
 		{
 			return new CEllipse()
-		}
-		if(type === "Image")
-		{
-			if(!url)
-			{
-				// TODO: поменять ошибку
-				throw Error("NO URL")
-			}
-
-			return new CImage(url)
 		}
 
 		// TODO: поменять ошибку

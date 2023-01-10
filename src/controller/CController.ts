@@ -13,7 +13,7 @@ class CController implements IController
 
 	public GetShapes(): Array<IItem>
 	{
-		return this.model.GetShapes()
+		return this.model.GetItems()
 	}
 
 	public AddShape(type: string): void
@@ -59,18 +59,6 @@ class CController implements IController
 	public Redo(): void
 	{
 		this.model.Redo()
-	}
-
-	public Save(filename: string, path?: string): void
-	{
-		path !== undefined
-			? this.model.Save(filename, path)
-			: this.model.Save(filename)
-	}
-
-	public Upload(path: string): void
-	{
-		this.model.Upload(path)
 	}
 
 	private model: IEditor

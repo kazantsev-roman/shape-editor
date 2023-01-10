@@ -1,6 +1,5 @@
 import IItem from "../Item/IItem"
 import IEditor from "./IEditor"
-import ISerialization from "../Serialization/ISerialization"
 import IHistory from "../History/IHistory"
 import IObserver from "./IObserver"
 import Point from "../utils/types/Point"
@@ -11,19 +10,17 @@ import CDeleteShapeCommand from "../Commands/CDeleteShapeCommand"
 import CResizeShapeCommand from "../Commands/CResizeShapeCommand"
 import CMoveShapeCommand from "../Commands/CMoveShapeCommand"
 import CAddImageCommand from "../Commands/CAddImageCommand"
-import CSerializationJSON from "../Serialization/CSerializationJSON"
 
 class CEditor implements IEditor
 {
 	constructor()
 	{
 		this.history = new CHistory()
-		this.serialization = new CSerializationJSON()
 	}
 
-	GetShapes(): Array<IItem>
+	GetItems(): Array<IItem>
 	{
-		return this.shapes
+		return this.items
 	}
 
 	AddShape(type: string, path: string): void
@@ -31,8 +28,8 @@ class CEditor implements IEditor
 	AddShape(type: string, path?: string): void
 	{
 		const addItemCommand = path !== undefined
-			? new CAddImageCommand(this.shapes, type, path)
-			: new CAddShapeCommand(this.shapes, type)
+			? new CAddImageCommand(this.items, type, path)
+			: new CAddShapeCommand(this.items, type)
 		this.history.ExecuteCommand(addItemCommand)
 
 		this.NotifyObservers()
@@ -40,7 +37,7 @@ class CEditor implements IEditor
 
 	DeleteShape(id: string): void
 	{
-		const deleteShapeCommand = new CDeleteShapeCommand(this.shapes, id)
+		const deleteShapeCommand = new CDeleteShapeCommand(this.items, id)
 		this.history.ExecuteCommand(deleteShapeCommand)
 
 		this.NotifyObservers()
@@ -48,7 +45,7 @@ class CEditor implements IEditor
 
 	ResizeShape(id: string, size: Size): void
 	{
-		const resizeShapeCommand = new CResizeShapeCommand(this.shapes, size, id)
+		const resizeShapeCommand = new CResizeShapeCommand(this.items, size, id)
 		this.history.ExecuteCommand(resizeShapeCommand)
 
 		this.NotifyObservers()
@@ -56,7 +53,7 @@ class CEditor implements IEditor
 
 	MoveShape(id: string, point: Point): void
 	{
-		const moveShapeCommand = new CMoveShapeCommand(this.shapes, point, id)
+		const moveShapeCommand = new CMoveShapeCommand(this.items, point, id)
 		this.history.ExecuteCommand(moveShapeCommand)
 
 		this.NotifyObservers()
@@ -86,24 +83,6 @@ class CEditor implements IEditor
 		this.NotifyObservers()
 	}
 
-	Upload(path: string): void
-	{
-		// TODO: реализовать десериализацию
-		this.serialization.Deserialization()
-
-		this.NotifyObservers()
-	}
-
-	Save(path: string, filename: string): void
-	Save(filename: string): void
-	Save(path: string, filename?: string): void
-	{
-		// TODO: реализовать сериализацию
-		this.serialization.Serialization()
-
-		this.NotifyObservers()
-	}
-
 	RegisterObserver(observer: IObserver): void
 	{
 		this.observers.push(observer)
@@ -119,10 +98,9 @@ class CEditor implements IEditor
 		this.observers.forEach(observer => observer())
 	}
 
-	private shapes: Array<IItem> = []
+	private items: Array<IItem> = []
 	private observers: Array<IObserver> = []
 	private history: IHistory
-	private serialization: ISerialization
 }
 
 export default CEditor
