@@ -2,12 +2,11 @@ import Frame from "../../../../../../model/utils/types/Frame"
 
 interface ImageProps
 {
-	id: string,
 	path: string,
 	frame: Frame,
 }
 
-function Image({id, path, frame}: ImageProps)
+function Image({path, frame}: ImageProps)
 {
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y
@@ -16,7 +15,6 @@ function Image({id, path, frame}: ImageProps)
 
 	return (
 		<image
-			id={id}
 			x={x}
 			y={y}
 			width={width}

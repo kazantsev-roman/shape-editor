@@ -3,11 +3,10 @@ import Frame from "../../../../../../model/utils/types/Frame"
 
 interface EllipseProps
 {
-	id: string,
 	frame: Frame,
 }
 
-function Ellipse({id, frame}: EllipseProps)
+function Ellipse({frame}: EllipseProps)
 {
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y
@@ -16,7 +15,6 @@ function Ellipse({id, frame}: EllipseProps)
 
 	return (
 		<ellipse
-			id={id}
 			cx={x + width / 2}
 			cy={y + height / 2}
 			rx={width / 2}

@@ -3,11 +3,10 @@ import Frame from "../../../../../../model/utils/types/Frame"
 
 interface RectangleProps
 {
-	id: string,
 	frame: Frame,
 }
 
-function Rectangle({id, frame}: RectangleProps)
+function Rectangle({frame}: RectangleProps)
 {
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y
@@ -16,7 +15,6 @@ function Rectangle({id, frame}: RectangleProps)
 
 	return (
 		<rect
-			id={id}
 			x={x}
 			y={y}
 			width={width}

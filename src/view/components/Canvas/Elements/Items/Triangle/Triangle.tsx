@@ -3,11 +3,10 @@ import Frame from "../../../../../../model/utils/types/Frame"
 
 interface TriangleProps
 {
-	id: string,
 	frame: Frame,
 }
 
-function Triangle({id, frame}: TriangleProps)
+function Triangle({frame}: TriangleProps)
 {
 	const x = frame.leftTopPoint.x
 	const y = frame.leftTopPoint.y
@@ -16,7 +15,6 @@ function Triangle({id, frame}: TriangleProps)
 
 	return (
 		<polygon
-			id={id}
 			x={x}
 			y={y}
 			points={

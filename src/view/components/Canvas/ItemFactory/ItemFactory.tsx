@@ -1,65 +1,43 @@
-import Size from "../../../../model/utils/types/Size"
-import Point from "../../../../model/utils/types/Point"
 import IItem from "../../../../model/Item/IItem"
 import Triangle from "../Elements/Items/Triangle/Triangle"
 import Rectangle from "../Elements/Items/Rectangle/Rectangle"
 import Ellipse from "../Elements/Items/Ellipse/Ellipse"
 import Image from "../Elements/Items/Image/Image"
-import Item from "../Elements/Item/Item"
 import isImage from "../../../../model/utils/typeGuards/isImage"
+import Frame from "../../../../model/utils/types/Frame"
 
 interface ItemFactoryProps
 {
 	item: IItem,
-	resizeItem: (id: string, size: Size) => void,
-	moveItem: (id: string, point: Point) => void
+	frame: Frame
 }
 
-function ItemFactory({item, resizeItem, moveItem}: ItemFactoryProps)
+function ItemFactory({item, frame}: ItemFactoryProps)
 {
-	let itemElement: JSX.Element | null = null
-
 	switch(item.GetType())
 	{
 	case "Triangle":
-		itemElement = <Triangle
-			id={item.GetId()}
-			frame={item.GetFrame()}
+		return <Triangle
+			frame={frame}
 		/>
-		break
 	case "Rectangle":
-		itemElement = <Rectangle
-			id={item.GetId()}
-			frame={item.GetFrame()}
+		return <Rectangle
+			frame={frame}
 		/>
-		break
 	case "Ellipse":
-		itemElement = <Ellipse
-			id={item.GetId()}
-			frame={item.GetFrame()}
+		return <Ellipse
+			frame={frame}
 		/>
-		break
 	case "Image":
 		if(isImage(item))
 		{
-			itemElement = <Image
-				id={item.GetId()}
+			return <Image
 				path={item.GetPath()}
-				frame={item.GetFrame()}
+				frame={frame}
 			/>
-			break
 		}
 	}
-
-	return (
-		<>
-			{itemElement &&
-                <Item id={item.GetId()} frame={item.GetFrame()} resizeItem={resizeItem} moveItem={moveItem}>
-					{itemElement}
-                </Item>
-			}
-		</>
-	)
+	return null
 }
 
 export default ItemFactory
