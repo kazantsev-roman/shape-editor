@@ -1,6 +1,6 @@
 import { useState } from "react"
 import styles from "./Button.module.css"
-import Popup from "../Popup/Popup"
+import Popup from "./Popup/Popup"
 import useComponentVisible from "../../../hooks/useComponentVisible"
 
 interface ButtonProps
