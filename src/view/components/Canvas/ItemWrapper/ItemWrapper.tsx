@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import Size from "../../../../model/utils/types/Size"
 import Point from "../../../../model/utils/types/Point"
+import IItem from "../../../../model/Item/IItem"
+import FrameJSX  from "../Elements/Frame/Frame"
 import useItemDragAndDrop from "../../../hooks/useItemDragAndDrop"
 import useClickOutside from "../../../hooks/useClickOutside"
 import addPropsToChildren from "../../../utils/addPropsToChildren"
-import IItem from "../../../../model/Item/IItem"
-import FrameJSX  from "../Elements/Frame/Frame"
 
 interface ItemWrapperProps
 {
@@ -20,29 +20,34 @@ interface ItemWrapperProps
 function ItemWrapper({item, selectItem, setSelectItem, resizeItem, moveItem, children}: ItemWrapperProps)
 {
 	const ref = useRef<SVGGElement>(null)
+	const x = item.GetFrame().leftTopPoint.x
+	const y = item.GetFrame().leftTopPoint.y
+	const width = item.GetFrame().width
+	const height = item.GetFrame().height
 
-	const [position, setPosition] = useState({x: item.GetFrame().leftTopPoint.x, y: item.GetFrame().leftTopPoint.y})
-	const [size, setSize] = useState({width: item.GetFrame().width, height: item.GetFrame().height})
+	const [position, setPosition] = useState({x, y})
+	const [size, setSize] = useState({width, height})
 
 	const MouseDownListener = () => {
 		setSelectItem(item)
 	}
 
 	useEffect(() => {
-		ref.current?.addEventListener("click", MouseDownListener)
+		const element = ref.current
+		element?.addEventListener("click", MouseDownListener)
 
 		return () => {
-			ref.current?.removeEventListener("click", MouseDownListener)
+			element?.removeEventListener("click", MouseDownListener)
 		}
 	})
 
 	useEffect(() => {
-		setPosition({x: item.GetFrame().leftTopPoint.x, y: item.GetFrame().leftTopPoint.y})
-	}, [item.GetFrame().leftTopPoint.x, item.GetFrame().leftTopPoint.y])
+		setPosition({x, y})
+	}, [x, y])
 
 	useEffect(() => {
-		setSize({width: item.GetFrame().width, height: item.GetFrame().height})
-	}, [item.GetFrame().width, item.GetFrame().height])
+		setSize({width, height: height})
+	}, [width, height])
 
 	useClickOutside(ref, () => {setSelectItem(null)})
 	useItemDragAndDrop<SVGGElement>(ref, item.GetId(), position, setPosition, () => {setSelectItem(item)}, moveItem)
