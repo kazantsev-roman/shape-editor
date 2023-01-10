@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import IItem from "../../../model/Item/IItem"
 import Size from "../../../model/utils/types/Size"
 import Point from "../../../model/utils/types/Point"
-import Frame from "./Elements/Frame/Frame"
 import ItemFactory from "./ItemFactory/ItemFactory"
 import Settings from "../../Settings"
+import ItemWrapper from "./ItemWrapper/ItemWrapper";
 
 interface CanvasProps
 {
@@ -22,11 +22,10 @@ function Canvas(
 		deleteItem
 	}: CanvasProps)
 {
-	const [selectItem, setSelectItem] = useState<IItem | null>()
+	const [selectItem, setSelectItem] = useState<IItem | null>(null)
 
 	const KeyUpListener = (event: KeyboardEvent) =>
 	{
-		console.log(event.key)
 		if(event.key === "Delete")
 		{
 			selectItem && deleteItem(selectItem.GetId())
@@ -45,14 +44,21 @@ function Canvas(
 		<svg baseProfile="full" width={Settings.canvasWidth} height={Settings.canvasHeight}>
 			<rect width="100%" height="100%" fill="white"/>
 			{items.map((item: IItem) => {
-				return <ItemFactory
-					key={item.GetId()}
-					item={item}
-					resizeItem={resizeItem}
-					moveItem={moveItem}
-				/>
+                return <ItemWrapper
+	                key={item.GetId()}
+	                item={item}
+	                selectItem={selectItem}
+	                setSelectItem={setSelectItem}
+	                resizeItem={resizeItem}
+	                moveItem={moveItem}
+                >
+                    <ItemFactory
+                        item={item}
+                        frame={item.GetFrame()}
+                    />
+                </ItemWrapper>
+
 			})}
-			<Frame height={100} width={100} x={10} y={10}/>
 		</svg>
 	)
 }
