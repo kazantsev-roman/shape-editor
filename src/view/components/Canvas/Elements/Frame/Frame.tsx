@@ -1,7 +1,8 @@
+import { useRef } from "react";
+import styles from "./Frame.module.css"
 import IItem from "../../../../../model/Item/IItem";
 import FrameType from "../../../../../model/utils/types/Frame"
 import Size from "../../../../../model/utils/types/Size";
-import { useRef } from "react";
 import useItemResize from "../../../../hooks/useItemResize";
 
 interface FrameProps
@@ -31,6 +32,7 @@ function Frame({selectItem, setSize, resizeItem, frame}: FrameProps)
 				strokeWidth={1}
 			/>
 			<circle
+				className={styles.circle}
 				ref={circleRef}
 				cx={frame.leftTopPoint.x + frame.width + 5}
 				cy={frame.leftTopPoint.y + frame.height + 5}
