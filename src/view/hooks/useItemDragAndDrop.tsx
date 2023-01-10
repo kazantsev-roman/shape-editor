@@ -7,9 +7,12 @@ function useItemDragAndDrop<T extends Element>(
 	id: string,
 	position: { x: number, y: number },
 	setPosition: (position: { x: number, y: number }) => void,
+	setSelectItem: () => void,
 	moveItem: (id: string, position: { x: number, y: number }) => void
 )
 {
+	const onDragStart = setSelectItem
+
 	const onDrag = (delta: { x: number, y: number }) => {
 		if(ref.current?.getBoundingClientRect())
 		{
@@ -31,7 +34,7 @@ function useItemDragAndDrop<T extends Element>(
 		moveItem(id, currentPosition)
 	}
 
-	useDragAndDrop<T>(ref, () => {}, onDrag, onDragEnd)
+	useDragAndDrop<T>(ref, onDragStart, onDrag, onDragEnd)
 }
 
 export default useItemDragAndDrop
