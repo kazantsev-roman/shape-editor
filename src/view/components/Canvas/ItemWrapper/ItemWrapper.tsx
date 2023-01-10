@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import Size from "../../../../model/utils/types/Size"
 import Point from "../../../../model/utils/types/Point"
 import IItem from "../../../../model/Item/IItem"
+import Frame from "../../../../model/utils/types/Frame"
 import FrameJSX  from "../Elements/Frame/Frame"
 import useItemDragAndDrop from "../../../hooks/useItemDragAndDrop"
 import useClickOutside from "../../../hooks/useClickOutside"
@@ -66,7 +67,7 @@ function ItemWrapper({item, selectItem, setSelectItem, resizeItem, moveItem, chi
 					}}
 				/>}
 			<g ref={ref}>
-				{addPropsToChildren(children, {
+				{addPropsToChildren<{ frame: Frame }>(children, {
 					frame: {
 						leftTopPoint: position,
 						width: size.width,

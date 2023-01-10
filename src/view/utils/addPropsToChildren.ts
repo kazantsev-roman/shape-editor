@@ -1,6 +1,6 @@
 import React from "react"
 
-function addPropsToChildren(children: JSX.Element, props: any)
+function addPropsToChildren<T extends object>(children: JSX.Element, props: T)
 {
 	if(React.isValidElement(children))
 	{
