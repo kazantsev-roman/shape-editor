@@ -2,6 +2,7 @@ import styles from "./Header.module.css"
 import Button from "./Button/Button"
 import Element from "./Element/Element"
 import ElementImage from "./Element/ElementImage"
+import { useEffect } from "react";
 
 interface HeaderProps
 {
@@ -20,6 +21,31 @@ interface HeaderProps
 
 function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo, canRedo, redo, upload, save, saveAs}: HeaderProps)
 {
+	const KeyUpListener = (event: KeyboardEvent) =>
+	{
+		console.log(event.key)
+		if(event.key.toUpperCase() === "R")
+		{
+			addRectangle()
+		}
+		if(event.key.toUpperCase() === "E" || event.key.toUpperCase() === "C")
+		{
+			addEllipse()
+		}
+		if(event.key.toUpperCase() === "T")
+		{
+			addTriangle()
+		}
+	}
+
+	useEffect(() => {
+		document.addEventListener("keyup", KeyUpListener)
+
+		return () => {
+			document.removeEventListener("keyup", KeyUpListener)
+		}
+	})
+
 	return (
 		<div className={styles.wrap}>
 			<Button text={"File"} indent={15}>
