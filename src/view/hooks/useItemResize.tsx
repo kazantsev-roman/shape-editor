@@ -31,7 +31,7 @@ function useItemResize<T extends Element>(
 					: currentSize.height
 		}
 
-		setSize(currentSize)
+		setSize({width: delta.x, height: delta.y})
 	}
 
 	const onDragEnd = (currentPosition: { x: number, y: number }) => {
