@@ -15,6 +15,7 @@ function Image({path, frame}: ImageProps)
 
 	return (
 		<image
+			preserveAspectRatio={"none"}
 			x={x}
 			y={y}
 			width={width}
