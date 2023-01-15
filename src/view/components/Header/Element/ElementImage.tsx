@@ -17,7 +17,15 @@ function ElementImage({imageUrl, text, action}: ElementProps)
 	}
 
 	const fileUploadInputChange = (event: any) => {
-		action(URL.createObjectURL(event.target.files[0]));
+		let file = event.target.files[0]
+		let reader = new FileReader()
+		reader.readAsDataURL(file)
+
+		reader.onload = () => {
+			action(reader.result)
+		}
+
+		event.target.value = null
 	}
 
 	return (
