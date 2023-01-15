@@ -55,17 +55,6 @@ function ItemWrapper({item, selectItem, setSelectItem, resizeItem, moveItem, chi
 
 	return (
 		<>
-			{(selectItem?.GetId() === item.GetId()) &&
-				<FrameJSX
-					selectItem={selectItem}
-					setSize={setSize}
-                    resizeItem={resizeItem}
-					frame={{
-						leftTopPoint: position,
-						width: size.width,
-						height: size.height
-					}}
-				/>}
 			<g ref={ref}>
 				{addPropsToChildren<{ frame: Frame }>(children, {
 					frame: {
@@ -74,6 +63,17 @@ function ItemWrapper({item, selectItem, setSelectItem, resizeItem, moveItem, chi
 						height: size.height
 					}
 				})}
+				{(selectItem?.GetId() === item.GetId()) &&
+                    <FrameJSX
+                        selectItem={selectItem}
+                        setSize={setSize}
+                        resizeItem={resizeItem}
+                        frame={{
+							leftTopPoint: position,
+							width: size.width,
+							height: size.height
+						}}
+                    />}
 			</g>
 		</>
 	)

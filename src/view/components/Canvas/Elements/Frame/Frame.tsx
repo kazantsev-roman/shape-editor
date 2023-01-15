@@ -20,13 +20,13 @@ function Frame({selectItem, setSize, resizeItem, frame}: FrameProps)
 	useItemResize<SVGCircleElement>(circleRef, selectItem.GetId(), frame, setSize, resizeItem)
 
 	return (
-		<>
+		<g>
 			<rect
-				x={frame.leftTopPoint.x - 5}
-				y={frame.leftTopPoint.y - 5}
-				width={frame.width + 10}
-				height={frame.height + 10}
-				stroke={"#1f74d7"}
+				x={frame.leftTopPoint.x}
+				y={frame.leftTopPoint.y}
+				width={frame.width}
+				height={frame.height}
+				stroke={"#ff0000"}
 				fill="#000"
 				fillOpacity="0"
 				strokeWidth={1}
@@ -34,12 +34,12 @@ function Frame({selectItem, setSize, resizeItem, frame}: FrameProps)
 			<circle
 				className={styles.circle}
 				ref={circleRef}
-				cx={frame.leftTopPoint.x + frame.width + 5}
-				cy={frame.leftTopPoint.y + frame.height + 5}
+				cx={frame.leftTopPoint.x + frame.width}
+				cy={frame.leftTopPoint.y + frame.height}
 				r={4}
 				fill="#000"
 			/>
-		</>
+		</g>
 	)
 }
 
