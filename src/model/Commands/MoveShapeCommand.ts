@@ -1,5 +1,5 @@
 import IItem from "../Item/IItem"
-import Point from "../utils/types/Point"
+import Point from "../../common/types/Point"
 import AbstractCommand from "./AbstractCommand"
 
 class MoveShapeCommand extends AbstractCommand
@@ -9,7 +9,7 @@ class MoveShapeCommand extends AbstractCommand
 		super()
 		this.shapes = shapes
 		this.newPoint = point
-		this.shape = this.shapes.find(shape => shape.GetId() === id)
+		this.shape = this.shapes.find(shape => shape.GetId() === id) as IItem
 	}
 
 	protected DoExecute(): void
@@ -17,16 +17,16 @@ class MoveShapeCommand extends AbstractCommand
 		this.oldPoint = this.shape
 			? this.shape.GetFrame().leftTopPoint
 			: this.oldPoint
-		this.shape?.Move(this.newPoint)
+		this.shape.Move(this.newPoint)
 	}
 
 	protected DoUnExecute(): void
 	{
-		this.shape?.Move(this.oldPoint)
+		this.shape.Move(this.oldPoint)
 	}
 
 	private shapes: Array<IItem>
-	private readonly shape: IItem | undefined
+	private readonly shape: IItem
 	private readonly newPoint: Point
 	private oldPoint: Point = {x: 0, y: 0}
 }
