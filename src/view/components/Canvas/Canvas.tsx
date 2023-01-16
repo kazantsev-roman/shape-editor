@@ -28,7 +28,11 @@ function Canvas(
 	{
 		if(event.key === "Delete")
 		{
-			selectItem && deleteItem(selectItem.GetId())
+			if (selectItem)
+			{
+				deleteItem(selectItem.GetId())
+				setSelectItem(null)
+			}
 		}
 	}
 
