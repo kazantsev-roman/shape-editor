@@ -14,17 +14,18 @@ function useItemDragAndDrop<T extends Element>(
 	const onDragStart = setSelectItem
 
 	const onDrag = (delta: { x: number, y: number }) => {
-		if(ref.current?.getBoundingClientRect())
+		const size = ref.current?.getBoundingClientRect()
+		if(size)
 		{
 			delta.x = position.x + delta.x < 0
 				? 0
-				: position.x + delta.x > Settings.canvasWidth - ref.current?.getBoundingClientRect().width
-					? Settings.canvasWidth - ref.current?.getBoundingClientRect().width
+				: position.x + delta.x > Settings.canvasWidth - size.width
+					? Settings.canvasWidth - size.width
 					: position.x + delta.x
 			delta.y = position.y + delta.y < 0
 				? 0
-				: position.y + delta.y > Settings.canvasHeight - ref.current?.getBoundingClientRect().height
-					? Settings.canvasHeight - ref.current?.getBoundingClientRect().height
+				: position.y + delta.y > Settings.canvasHeight - size.height
+					? Settings.canvasHeight - size.height
 					: position.y + delta.y
 		}
 		setPosition(delta)
