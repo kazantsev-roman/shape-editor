@@ -8,7 +8,7 @@ class AddShapeCommand extends AbstractCommand
 	{
 		super()
 		this.shapes = shapes
-		this.shape = new ShapeFactory().CreateShape(type)
+		this.shape = ShapeFactory.CreateShape(type)
 	}
 
 	protected DoExecute(): void

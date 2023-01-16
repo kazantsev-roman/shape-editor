@@ -1,12 +1,11 @@
 import IItem from "../Item/IItem"
-import IShapeFactory from "./IShapeFactory"
 import Rectangle from "../Item/Shape/Rectangle/Rectangle"
 import Triangle from "../Item/Shape/Triangle/Triangle"
 import Ellipse from "../Item/Shape/Ellipse/Ellipse"
 
-class ShapeFactory implements IShapeFactory
+class ShapeFactory
 {
-	CreateShape(type: string): IItem
+	static CreateShape(type: string): IItem
 	{
 		if(type === "Rectangle")
 		{
