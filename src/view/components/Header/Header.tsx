@@ -20,7 +20,6 @@ function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo,
 {
 	const KeyUpListener = (event: KeyboardEvent) =>
 	{
-		console.log(event.key)
 		if(event.key.toUpperCase() === "R")
 		{
 			addRectangle()
