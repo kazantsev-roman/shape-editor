@@ -1,8 +1,8 @@
 import { RefObject } from "react"
 import useDragAndDrop from "./useDragAndDrop"
 import Settings from "../Settings"
-import Size from "../../model/utils/types/Size"
-import Frame from "../../model/utils/types/Frame"
+import Size from "../../common/types/Size"
+import Frame from "../../common/types/Frame"
 
 function useItemResize<T extends Element>(
 	ref: RefObject<T>,

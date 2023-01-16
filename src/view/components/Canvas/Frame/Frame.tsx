@@ -1,4 +1,4 @@
-import FrameType from "../../../../model/utils/types/Frame"
+import FrameType from "../../../../common/types/Frame"
 
 interface FrameProps
 {

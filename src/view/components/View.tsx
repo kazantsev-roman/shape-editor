@@ -3,8 +3,8 @@ import Canvas from "./Canvas/Canvas"
 import Header from "./Header/Header"
 import IController from "../../controller/IController"
 import IItem from "../../model/Item/IItem"
-import Size from "../../model/utils/types/Size"
-import Point from "../../model/utils/types/Point"
+import Size from "../../common/types/Size"
+import Point from "../../common/types/Point"
 
 interface ViewProps
 {

@@ -1,5 +1,5 @@
 import Settings from "../../../../../Settings"
-import Frame from "../../../../../../model/utils/types/Frame"
+import Frame from "../../../../../../common/types/Frame"
 
 interface RectangleProps
 {

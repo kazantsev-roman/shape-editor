@@ -2,8 +2,8 @@ import styles from "./Circle.module.css";
 import useItemResize from "../../../../hooks/useItemResize";
 import { useRef } from "react";
 import IItem from "../../../../../model/Item/IItem";
-import Size from "../../../../../model/utils/types/Size";
-import FrameType from "../../../../../model/utils/types/Frame";
+import Size from "../../../../../common/types/Size";
+import FrameType from "../../../../../common/types/Frame";
 
 interface CircleProps
 {

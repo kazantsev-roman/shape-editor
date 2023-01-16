@@ -4,7 +4,7 @@ import Rectangle from "../ItemsView/Rectangle/Rectangle"
 import Ellipse from "../ItemsView/Ellipse/Ellipse"
 import Image from "../ItemsView/Image/Image"
 import isImage from "../../../../../model/utils/typeGuards/isImage"
-import Frame from "../../../../../model/utils/types/Frame"
+import Frame from "../../../../../common/types/Frame"
 
 interface ItemFactoryProps
 {
