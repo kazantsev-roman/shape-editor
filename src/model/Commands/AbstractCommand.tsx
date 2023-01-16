@@ -18,7 +18,7 @@ abstract class AbstractCommand implements ICommand
 			return
 		}
 
-		throw Error("undo the command before it is executed")
+		throw Error("canceling the command before it is executed")
 	}
 
 	public IsExecuted(): boolean
