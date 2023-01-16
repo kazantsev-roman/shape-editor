@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import IItem from "../../../model/Item/IItem"
 import Size from "../../../model/utils/types/Size"
 import Point from "../../../model/utils/types/Point"
-import ItemFactory from "./ItemFactory/ItemFactory"
+import ItemFactory from "./Items/ItemFactory/ItemFactory"
 import Settings from "../../Settings"
 import ItemWrapper from "./ItemWrapper/ItemWrapper";
 

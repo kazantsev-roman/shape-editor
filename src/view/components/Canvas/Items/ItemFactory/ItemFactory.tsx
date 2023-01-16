@@ -1,10 +1,10 @@
-import IItem from "../../../../model/Item/IItem"
-import Triangle from "../Elements/Items/Triangle/Triangle"
-import Rectangle from "../Elements/Items/Rectangle/Rectangle"
-import Ellipse from "../Elements/Items/Ellipse/Ellipse"
-import Image from "../Elements/Items/Image/Image"
-import isImage from "../../../../model/utils/typeGuards/isImage"
-import Frame from "../../../../model/utils/types/Frame"
+import IItem from "../../../../../model/Item/IItem"
+import Triangle from "../ItemsView/Triangle/Triangle"
+import Rectangle from "../ItemsView/Rectangle/Rectangle"
+import Ellipse from "../ItemsView/Ellipse/Ellipse"
+import Image from "../ItemsView/Image/Image"
+import isImage from "../../../../../model/utils/typeGuards/isImage"
+import Frame from "../../../../../model/utils/types/Frame"
 
 interface ItemFactoryProps
 {
