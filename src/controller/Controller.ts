@@ -4,14 +4,14 @@ import IItem from "../model/Item/IItem"
 import Point from "../model/utils/types/Point"
 import Size from "../model/utils/types/Size"
 
-class CController implements IController
+class Controller implements IController
 {
 	constructor(model: IEditor)
 	{
 		this.model = model
 	}
 
-	public GetShapes(): Array<IItem>
+	public GetItems(): Array<IItem>
 	{
 		return this.model.GetItems()
 	}
@@ -23,22 +23,22 @@ class CController implements IController
 
 	public AddImage(path: string): void
 	{
-		this.model.AddShape("Image", path)
+		this.model.AddImage(path)
 	}
 
 	public DeleteItem(id: string): void
 	{
-		this.model.DeleteShape(id)
-	}
-
-	public MoveItem(id: string, point: Point): void
-	{
-		this.model.MoveShape(id, point)
+		this.model.DeleteItem(id)
 	}
 
 	public ResizeItem(id: string, size: Size): void
 	{
-		this.model.ResizeShape(id, size)
+		this.model.ResizeItem(id, size)
+	}
+
+	public MoveItem(id: string, point: Point): void
+	{
+		this.model.MoveItem(id, point)
 	}
 
 	public CanUndo(): boolean
@@ -64,4 +64,4 @@ class CController implements IController
 	private model: IEditor
 }
 
-export default CController
+export default Controller

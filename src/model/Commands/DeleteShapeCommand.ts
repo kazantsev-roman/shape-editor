@@ -1,7 +1,7 @@
 import IItem from "../Item/IItem"
-import CAbstractCommand from "./CAbstractCommand"
+import AbstractCommand from "./AbstractCommand"
 
-class CDeleteShapeCommand extends CAbstractCommand
+class DeleteShapeCommand extends AbstractCommand
 {
 	constructor(shapes: Array<IItem>, id: string)
 	{
@@ -19,20 +19,15 @@ class CDeleteShapeCommand extends CAbstractCommand
 			return
 		}
 
-		// TODO: поменять ошибку
-		throw Error("incorrect id")
+		throw Error("incorrect id specified")
 	}
 
 	protected DoUnExecute(): void
 	{
-		if(this.IsExecuted() && this.shape)
+		if(this.shape)
 		{
 			this.shapes.splice(this.position, 0, this.shape)
-			return
 		}
-
-		// TODO: поменять ошибку
-		throw Error("???")
 	}
 
 	private shapes: Array<IItem>
@@ -40,4 +35,4 @@ class CDeleteShapeCommand extends CAbstractCommand
 	private shape: IItem | null = null
 }
 
-export default CDeleteShapeCommand
+export default DeleteShapeCommand

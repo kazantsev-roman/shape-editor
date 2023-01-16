@@ -4,9 +4,9 @@ import './index.css'
 import IEditor from "./model/Editor/IEditor"
 import IController from "./controller/IController"
 import View from "./view/components/View"
-import CEditor from "./model/Editor/CEditor"
-import CController from "./controller/CController"
-import IObservable from "./model/Editor/IObservable";
+import Editor from "./model/Editor/Editor"
+import Controller from "./controller/Controller"
+import IObservable from "./common/IObservable";
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
@@ -14,8 +14,8 @@ const root = ReactDOM.createRoot(
 
 type EditorType = IEditor & IObservable
 
-const editor: EditorType = new CEditor()
-const controller: IController = new CController(editor)
+const editor: EditorType = new Editor()
+const controller: IController = new Controller(editor)
 
 function render()
 {

@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
-import CShape from "../CShape"
+import Shape from "../Shape"
 
-class CEllipse extends CShape
+class Triangle extends Shape
 {
 	GetType(): string
 	{
@@ -13,8 +13,8 @@ class CEllipse extends CShape
 		return this.id
 	}
 
-	private readonly type = "Ellipse"
+	private readonly type = "Triangle"
 	private readonly id = uuid()
 }
 
-export default CEllipse
+export default Triangle

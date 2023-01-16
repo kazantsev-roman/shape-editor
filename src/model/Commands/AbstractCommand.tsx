@@ -1,6 +1,6 @@
 import ICommand from "./ICommand"
 
-abstract class CAbstractCommand implements ICommand
+abstract class AbstractCommand implements ICommand
 {
 	public Execute(): void
 	{
@@ -10,8 +10,15 @@ abstract class CAbstractCommand implements ICommand
 
 	public UnExecute(): void
 	{
-		this.DoUnExecute()
-		this.executed = false
+		if (this.IsExecuted())
+		{
+			this.DoUnExecute()
+			this.executed = false
+
+			return
+		}
+
+		throw Error("undo the command before it is executed")
 	}
 
 	public IsExecuted(): boolean
@@ -26,4 +33,4 @@ abstract class CAbstractCommand implements ICommand
 	private executed = false
 }
 
-export default CAbstractCommand
+export default AbstractCommand

@@ -3,7 +3,7 @@ import Frame from "../../utils/types/Frame"
 import Point from "../../utils/types/Point"
 import Size from "../../utils/types/Size"
 
-abstract class CShape implements IItem
+abstract class Shape implements IItem
 {
 	constructor()
 	{
@@ -34,7 +34,7 @@ abstract class CShape implements IItem
 		this.frame.height = size.height
 	}
 
-	private frame: Frame
+	private readonly frame: Frame
 }
 
-export default CShape
+export default Shape

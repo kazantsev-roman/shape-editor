@@ -1,8 +1,8 @@
 import IItem from "../Item/IItem"
 import Point from "../utils/types/Point"
-import CAbstractCommand from "./CAbstractCommand"
+import AbstractCommand from "./AbstractCommand"
 
-class CMoveShapeCommand extends CAbstractCommand
+class MoveShapeCommand extends AbstractCommand
 {
 	constructor(shapes: Array<IItem>, point: Point, id: string)
 	{
@@ -22,14 +22,7 @@ class CMoveShapeCommand extends CAbstractCommand
 
 	protected DoUnExecute(): void
 	{
-		if(this.IsExecuted())
-		{
-			this.shape?.Move(this.oldPoint)
-			return
-		}
-
-		// TODO: поменять ошибку
-		throw Error("???")
+		this.shape?.Move(this.oldPoint)
 	}
 
 	private shapes: Array<IItem>
@@ -38,4 +31,4 @@ class CMoveShapeCommand extends CAbstractCommand
 	private oldPoint: Point = {x: 0, y: 0}
 }
 
-export default CMoveShapeCommand
+export default MoveShapeCommand

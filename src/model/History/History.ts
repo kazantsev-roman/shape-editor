@@ -1,7 +1,7 @@
 import IHistory from "./IHistory"
 import ICommand from "../Commands/ICommand"
 
-class CHistory implements IHistory
+class History implements IHistory
 {
 	public CanRedo(): boolean
 	{
@@ -26,7 +26,7 @@ class CHistory implements IHistory
 		}
 		else
 		{
-			throw Error("CAN'T REDO")
+			throw Error("the redo operation cannot be applied")
 		}
 	}
 
@@ -43,7 +43,7 @@ class CHistory implements IHistory
 		}
 		else
 		{
-			throw Error("CAN'T UNDO")
+			throw Error("the undo operation cannot be applied")
 		}
 	}
 
@@ -69,4 +69,4 @@ class CHistory implements IHistory
 	private redo: Array<ICommand> = []
 }
 
-export default CHistory
+export default History

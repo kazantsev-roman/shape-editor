@@ -1,8 +1,8 @@
 import IItem from "../Item/IItem"
 import Size from "../utils/types/Size"
-import CAbstractCommand from "./CAbstractCommand"
+import AbstractCommand from "./AbstractCommand"
 
-class CResizeShapeCommand extends CAbstractCommand
+class ResizeShapeCommand extends AbstractCommand
 {
 	constructor(shapes: Array<IItem>, size: Size, id: string)
 	{
@@ -22,14 +22,7 @@ class CResizeShapeCommand extends CAbstractCommand
 
 	protected DoUnExecute(): void
 	{
-		if(this.IsExecuted())
-		{
-			this.shape?.Resize(this.oldSize)
-			return
-		}
-
-		// TODO: поменять ошибку
-		throw Error("???")
+		this.shape?.Resize(this.oldSize)
 	}
 
 	private shapes: Array<IItem>
@@ -38,4 +31,4 @@ class CResizeShapeCommand extends CAbstractCommand
 	private oldSize: Size = {width: 0, height: 0}
 }
 
-export default CResizeShapeCommand
+export default ResizeShapeCommand

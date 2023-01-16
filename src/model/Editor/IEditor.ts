@@ -6,15 +6,15 @@ interface IEditor
 {
 	GetItems(): Array<IItem>
 
-	AddShape(type: string, file: string): void
-
 	AddShape(type: string): void
 
-	DeleteShape(id: string): void
+	AddImage(path: string): void
 
-	ResizeShape(id: string, size: Size): void
+	DeleteItem(id: string): void
 
-	MoveShape(id: string, point: Point): void
+	ResizeItem(id: string, size: Size): void
+
+	MoveItem(id: string, point: Point): void
 
 	CanUndo(): boolean
 

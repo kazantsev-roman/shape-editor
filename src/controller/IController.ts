@@ -4,11 +4,11 @@ import Point from "../model/utils/types/Point"
 
 interface IController
 {
-	GetShapes(): Array<IItem>
+	GetItems(): Array<IItem>
 
 	AddShape(type: string): void
 
-	AddImage(path?: string): void
+	AddImage(path: string): void
 
 	DeleteItem(id: string): void
 

@@ -4,7 +4,7 @@ import Frame from "../../utils/types/Frame"
 import Size from "../../utils/types/Size"
 import Point from "../../utils/types/Point"
 
-class CImage implements IImage
+class Image implements IImage
 {
 	constructor(path: string)
 	{
@@ -49,9 +49,9 @@ class CImage implements IImage
 	}
 
 	private readonly id: string
-	private frame: Frame
+	private readonly frame: Frame
 	private readonly type = "Image"
 	private readonly path: string
 }
 
-export default CImage
+export default Image
