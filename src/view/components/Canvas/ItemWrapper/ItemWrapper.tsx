@@ -21,7 +21,7 @@ interface ItemWrapperProps
 
 function ItemWrapper({item, selectItem, setSelectItem, resizeItem, moveItem, children}: ItemWrapperProps)
 {
-	const refItem = useRef<Element>(null)
+	const refItem = useRef<SVGGElement>(null)
 	const refContainer = useRef<SVGGElement>(null)
 
 	const x = item.GetFrame().leftTopPoint.x
@@ -53,12 +53,12 @@ function ItemWrapper({item, selectItem, setSelectItem, resizeItem, moveItem, chi
 		setSize({width, height: height})
 	}, [width, height])
 
-	useClickOutside(refContainer, () => {setSelectItem(null)})
-	useItemDragAndDrop<Element>(refContainer, item.GetId(), position, setPosition, () => {setSelectItem(item)}, moveItem)
+	useClickOutside<Element>(refContainer, () => {setSelectItem(null)})
+	useItemDragAndDrop<Element>(refItem, item.GetId(), position, setPosition, () => {setSelectItem(item)}, moveItem)
 
 	return (
-		<g>
-			<g ref={refContainer}>
+		<g ref={refContainer}>
+			<g ref={refItem}>
 				{addPropsToChildren<{ frame: Frame }>(children, {
 					frame: {
 						leftTopPoint: position,
