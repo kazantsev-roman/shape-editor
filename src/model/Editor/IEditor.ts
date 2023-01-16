@@ -1,6 +1,6 @@
 import IItem from "../Item/IItem"
-import Size from "../utils/types/Size"
-import Point from "../utils/types/Point"
+import Size from "../../common/types/Size"
+import Point from "../../common/types/Point"
 
 interface IEditor
 {

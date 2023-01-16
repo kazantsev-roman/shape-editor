@@ -1,8 +1,8 @@
 import IController from "./IController"
 import IEditor from "../model/Editor/IEditor"
 import IItem from "../model/Item/IItem"
-import Point from "../model/utils/types/Point"
-import Size from "../model/utils/types/Size"
+import Point from "../common/types/Point"
+import Size from "../common/types/Size"
 
 class Controller implements IController
 {

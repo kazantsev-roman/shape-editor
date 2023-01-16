@@ -1,6 +1,6 @@
-import Point from "../utils/types/Point"
-import Size from "../utils/types/Size"
-import Frame from "../utils/types/Frame"
+import Point from "../../common/types/Point"
+import Size from "../../common/types/Size"
+import Frame from "../../common/types/Frame"
 
 interface IItem
 {
