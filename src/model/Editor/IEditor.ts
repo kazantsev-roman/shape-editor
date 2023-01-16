@@ -1,9 +1,8 @@
 import IItem from "../Item/IItem"
-import IObservable from "./IObservable"
 import Size from "../utils/types/Size"
 import Point from "../utils/types/Point"
 
-interface IEditor extends IObservable
+interface IEditor
 {
 	GetItems(): Array<IItem>
 

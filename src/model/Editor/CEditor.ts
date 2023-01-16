@@ -10,8 +10,9 @@ import CDeleteShapeCommand from "../Commands/CDeleteShapeCommand"
 import CResizeShapeCommand from "../Commands/CResizeShapeCommand"
 import CMoveShapeCommand from "../Commands/CMoveShapeCommand"
 import CAddImageCommand from "../Commands/CAddImageCommand"
+import IObservable from "./IObservable";
 
-class CEditor implements IEditor
+class CEditor implements IEditor, IObservable
 {
 	constructor()
 	{
@@ -22,6 +23,8 @@ class CEditor implements IEditor
 	{
 		return this.items
 	}
+
+	// TODO: убрать дублирование
 
 	AddShape(type: string, path: string): void
 	AddShape(type: string): void

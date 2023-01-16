@@ -6,12 +6,15 @@ import IController from "./controller/IController"
 import View from "./view/components/View"
 import CEditor from "./model/Editor/CEditor"
 import CController from "./controller/CController"
+import IObservable from "./model/Editor/IObservable";
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 
-const editor: IEditor = new CEditor()
+type EditorType = IEditor & IObservable
+
+const editor: EditorType = new CEditor()
 const controller: IController = new CController(editor)
 
 function render()
