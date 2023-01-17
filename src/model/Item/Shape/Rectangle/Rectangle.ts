@@ -1,23 +1,11 @@
 import { v4 as uuid } from 'uuid'
-import Shape from "../Shape"
+import BaseItem from "../../BaseItem"
 import Shapes from "../../../../common/enum/shapes";
 
-class Rectangle extends Shape
+class Rectangle extends BaseItem
 {
-	GetType(): string
-	{
-		return this.type
-	}
-
-	GetId(): string
-	{
-		return this.id
-	}
-
-	// TODO:избавитья от дублирования за счет абстрактных полей
-
-	private readonly type = Shapes.Rectangle
-	private readonly id = uuid()
+	protected readonly type = Shapes.Rectangle
+	protected readonly id = uuid()
 }
 
 export default Rectangle

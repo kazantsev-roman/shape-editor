@@ -1,21 +1,11 @@
 import { v4 as uuid } from 'uuid'
-import Shape from "../Shape"
+import BaseItem from "../../BaseItem"
 import Shapes from "../../../../common/enum/shapes";
 
-class Triangle extends Shape
+class Triangle extends BaseItem
 {
-	GetType(): string
-	{
-		return this.type
-	}
-
-	GetId(): string
-	{
-		return this.id
-	}
-
-	private readonly type = Shapes.Triangle
-	private readonly id = uuid()
+	protected readonly type = Shapes.Triangle
+	protected readonly id = uuid()
 }
 
 export default Triangle

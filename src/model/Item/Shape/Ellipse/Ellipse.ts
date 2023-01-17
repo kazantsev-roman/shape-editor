@@ -1,21 +1,11 @@
 import { v4 as uuid } from 'uuid'
-import Shape from "../Shape"
-import Shapes from "../../../../common/enum/shapes";
+import BaseItem from "../../BaseItem"
+import Shapes from "../../../../common/enum/shapes"
 
-class Ellipse extends Shape
+class Ellipse extends BaseItem
 {
-	GetType(): string
-	{
-		return this.type
-	}
-
-	GetId(): string
-	{
-		return this.id
-	}
-
-	private readonly type = Shapes.Ellipse
-	private readonly id = uuid()
+	protected readonly type = Shapes.Ellipse
+	protected readonly id = uuid()
 }
 
 export default Ellipse
