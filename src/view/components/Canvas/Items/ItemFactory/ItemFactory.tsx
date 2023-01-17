@@ -5,6 +5,7 @@ import Ellipse from "../ItemsView/Ellipse/Ellipse"
 import Image from "../ItemsView/Image/Image"
 import isImage from "../../../../../model/utils/typeGuards/isImage"
 import Frame from "../../../../../common/types/Frame"
+import Shapes from "../../../../../common/enum/shapes";
 
 interface ItemFactoryProps
 {
@@ -16,19 +17,19 @@ function ItemFactory({item, frame}: ItemFactoryProps)
 {
 	switch(item.GetType())
 	{
-	case "Triangle":
+	case Shapes.Triangle:
 		return <Triangle
 			frame={frame}
 		/>
-	case "Rectangle":
+	case Shapes.Rectangle:
 		return <Rectangle
 			frame={frame}
 		/>
-	case "Ellipse":
+	case Shapes.Ellipse:
 		return <Ellipse
 			frame={frame}
 		/>
-	case "Image":
+	case Shapes.Image:
 		if(isImage(item))
 		{
 			return <Image

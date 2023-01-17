@@ -1,8 +1,9 @@
 import { v4 as uuid } from "uuid"
 import IImage from "./IImage"
-import Frame from "../../utils/types/Frame"
-import Size from "../../utils/types/Size"
-import Point from "../../utils/types/Point"
+import Frame from "../../../common/types/Frame"
+import Size from "../../../common/types/Size"
+import Point from "../../../common/types/Point"
+import Shapes from "../../../common/enum/shapes";
 
 class Image implements IImage
 {
@@ -17,6 +18,7 @@ class Image implements IImage
 		}
 	}
 
+	// TODO: избавиться от дублирования
 	GetType(): string
 	{
 		return this.type
@@ -50,7 +52,7 @@ class Image implements IImage
 
 	private readonly id: string
 	private readonly frame: Frame
-	private readonly type = "Image"
+	private readonly type = Shapes.Image
 	private readonly path: string
 }
 

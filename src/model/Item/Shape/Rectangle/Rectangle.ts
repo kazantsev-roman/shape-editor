@@ -1,5 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import Shape from "../Shape"
+import Shapes from "../../../../common/enum/shapes";
 
 class Rectangle extends Shape
 {
@@ -13,7 +14,9 @@ class Rectangle extends Shape
 		return this.id
 	}
 
-	private readonly type = "Rectangle"
+	// TODO:избавитья от дублирования за счет абстрактных полей
+
+	private readonly type = Shapes.Rectangle
 	private readonly id = uuid()
 }
 

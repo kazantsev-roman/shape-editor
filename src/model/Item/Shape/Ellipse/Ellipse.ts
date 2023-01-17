@@ -1,5 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import Shape from "../Shape"
+import Shapes from "../../../../common/enum/shapes";
 
 class Ellipse extends Shape
 {
@@ -13,7 +14,7 @@ class Ellipse extends Shape
 		return this.id
 	}
 
-	private readonly type = "Ellipse"
+	private readonly type = Shapes.Ellipse
 	private readonly id = uuid()
 }
 
