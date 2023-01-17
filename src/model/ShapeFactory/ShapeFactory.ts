@@ -2,21 +2,19 @@ import IItem from "../Item/IItem"
 import Rectangle from "../Item/Shape/Rectangle/Rectangle"
 import Triangle from "../Item/Shape/Triangle/Triangle"
 import Ellipse from "../Item/Shape/Ellipse/Ellipse"
+import ItemsType from "../../common/types/itemsType"
 
 class ShapeFactory
 {
 	static CreateShape(type: string): IItem
 	{
-		if(type === "Rectangle")
+		switch(type)
 		{
-			return new Rectangle()
-		}
-		if(type === "Triangle")
-		{
+		case ItemsType.Triangle:
 			return new Triangle()
-		}
-		if(type === "Ellipse")
-		{
+		case ItemsType.Rectangle:
+			return new Rectangle()
+		case ItemsType.Ellipse:
 			return new Ellipse()
 		}
 
