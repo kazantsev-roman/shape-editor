@@ -1,6 +1,6 @@
 import IImage from "./IImage"
 import BaseItem from "../BaseItem"
-import Shapes from "../../../common/enum/shapes"
+import ItemsType from "../../../common/types/itemsType"
 import { v4 as uuid } from "uuid";
 
 class Image extends BaseItem implements IImage
@@ -17,8 +17,8 @@ class Image extends BaseItem implements IImage
 	}
 
 	private readonly path: string
-	readonly id = uuid()
-	readonly type = Shapes.Image
+	protected readonly id = uuid()
+	protected readonly type = ItemsType.Image
 }
 
 export default Image

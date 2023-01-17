@@ -2,7 +2,7 @@ import IItem from "./IItem"
 import Frame from "../../common/types/Frame"
 import Point from "../../common/types/Point"
 import Size from "../../common/types/Size"
-import Shapes from "../../common/enum/shapes"
+import ItemsType from "../../common/types/itemsType"
 
 abstract class BaseItem implements IItem
 {
@@ -42,7 +42,7 @@ abstract class BaseItem implements IItem
 	}
 
 	private readonly frame: Frame
-	protected abstract readonly type: Shapes
+	protected abstract readonly type: ItemsType
 	protected abstract readonly id: string
 }
 

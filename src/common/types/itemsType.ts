@@ -1,4 +1,4 @@
-enum Shapes
+enum ItemsType
 {
 	Rectangle = "Rectangle",
 	Triangle = "Triangle",
@@ -6,4 +6,4 @@ enum Shapes
 	Image = "Image"
 }
 
-export default Shapes
+export default ItemsType
