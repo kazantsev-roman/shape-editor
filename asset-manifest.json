@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/shape-editor/static/css/main.65e53560.chunk.css",
-    "main.js": "/shape-editor/static/js/main.3483f232.chunk.js",
-    "main.js.map": "/shape-editor/static/js/main.3483f232.chunk.js.map",
+    "main.js": "/shape-editor/static/js/main.732854ba.chunk.js",
+    "main.js.map": "/shape-editor/static/js/main.732854ba.chunk.js.map",
     "runtime-main.js": "/shape-editor/static/js/runtime-main.72b28387.js",
     "runtime-main.js.map": "/shape-editor/static/js/runtime-main.72b28387.js.map",
-    "static/js/2.7d9336a8.chunk.js": "/shape-editor/static/js/2.7d9336a8.chunk.js",
-    "static/js/2.7d9336a8.chunk.js.map": "/shape-editor/static/js/2.7d9336a8.chunk.js.map",
+    "static/js/2.8c5759be.chunk.js": "/shape-editor/static/js/2.8c5759be.chunk.js",
+    "static/js/2.8c5759be.chunk.js.map": "/shape-editor/static/js/2.8c5759be.chunk.js.map",
     "index.html": "/shape-editor/index.html",
     "static/css/main.65e53560.chunk.css.map": "/shape-editor/static/css/main.65e53560.chunk.css.map",
-    "static/js/2.7d9336a8.chunk.js.LICENSE.txt": "/shape-editor/static/js/2.7d9336a8.chunk.js.LICENSE.txt"
+    "static/js/2.8c5759be.chunk.js.LICENSE.txt": "/shape-editor/static/js/2.8c5759be.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.72b28387.js",
-    "static/js/2.7d9336a8.chunk.js",
+    "static/js/2.8c5759be.chunk.js",
     "static/css/main.65e53560.chunk.css",
-    "static/js/main.3483f232.chunk.js"
+    "static/js/main.732854ba.chunk.js"
   ]
 }
