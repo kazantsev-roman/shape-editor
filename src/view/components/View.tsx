@@ -5,6 +5,8 @@ import IController from "../../controller/IController"
 import IItem from "../../model/Item/IItem"
 import Size from "../../common/types/Size"
 import Point from "../../common/types/Point"
+import KeyboardEventListener from "./KeyboardEventListener/KeyboardEventListener"
+import { useState } from "react";
 
 interface ViewProps
 {
@@ -47,7 +49,7 @@ function View({controller, items}: ViewProps)
 	}
 
 	const undo = () => {
-		controller.Undo()
+		controller.CanUndo() && controller.Undo()
 	}
 
 	const canRedo = (): boolean => {
@@ -55,28 +57,28 @@ function View({controller, items}: ViewProps)
 	}
 
 	const redo = () => {
-		controller.Redo()
+		controller.CanRedo() && controller.Redo()
 	}
+
+	const [selectItem, setSelectItem] = useState<IItem | null>(null)
 
 	return (
 		<div>
-			<Header
+			<KeyboardEventListener
+				selectItem={selectItem}
+				setSelectItem={setSelectItem}
 				addTriangle={addTriangle}
 				addRectangle={addRectangle}
 				addEllipse={addEllipse}
-				addImage={addImage}
+				deleteItem={deleteItem}
 				canUndo={canUndo}
 				undo={undo}
 				canRedo={canRedo}
 				redo={redo}
 			/>
+			<Header addTriangle={addTriangle} addRectangle={addRectangle} addEllipse={addEllipse} addImage={addImage} canUndo={canUndo} undo={undo} canRedo={canRedo} redo={redo} />
 			<div className={styles.canvasWrap}>
-				<Canvas
-					items={items}
-					deleteItem={deleteItem}
-					resizeItem={resizeItem}
-					moveItem={moveItem}
-				/>
+				<Canvas selectItem={selectItem} setSelectItem={setSelectItem} items={items} resizeItem={resizeItem} moveItem={moveItem} />
 			</div>
 		</div>
 	)

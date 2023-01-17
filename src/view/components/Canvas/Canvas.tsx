@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import IItem from "../../../model/Item/IItem"
 import Size from "../../../common/types/Size"
 import Point from "../../../common/types/Point"
@@ -8,36 +7,15 @@ import ItemWrapper from "./ItemWrapper/ItemWrapper";
 
 interface CanvasProps
 {
+	selectItem: IItem | null,
+	setSelectItem: (item: IItem | null) => void,
 	items: Array<IItem>,
 	resizeItem: (id: string, size: Size) => void,
 	moveItem: (id: string, point: Point) => void,
-	deleteItem: (id: string) => void,
 }
 
-function Canvas({items, resizeItem, moveItem, deleteItem}: CanvasProps)
+function Canvas({items, resizeItem, moveItem, selectItem, setSelectItem}: CanvasProps)
 {
-	const [selectItem, setSelectItem] = useState<IItem | null>(null)
-
-	const KeyUpListener = (event: KeyboardEvent) =>
-	{
-		if(event.key === "Delete")
-		{
-			if (selectItem)
-			{
-				deleteItem(selectItem.GetId())
-				setSelectItem(null)
-			}
-		}
-	}
-
-	useEffect(() => {
-		document.addEventListener("keyup", KeyUpListener)
-
-		return () => {
-			document.removeEventListener("keyup", KeyUpListener)
-		}
-	})
-
 	return (
 		<svg baseProfile="full" width={Settings.canvasWidth} height={Settings.canvasHeight}>
 			<rect width="100%" height="100%" fill="white"/>

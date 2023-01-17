@@ -2,7 +2,6 @@ import styles from "./Header.module.css"
 import Button from "./Button/Button"
 import Element from "./Element/Element"
 import ElementImage from "./Element/ElementImage"
-import { useEffect } from "react";
 
 interface HeaderProps
 {
@@ -18,38 +17,6 @@ interface HeaderProps
 
 function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo, canRedo, redo}: HeaderProps)
 {
-	const KeyUpListener = (event: KeyboardEvent) =>
-	{
-		if(event.code === "KeyR")
-		{
-			addRectangle()
-		}
-		if(event.code === "KeyE")
-		{
-			addEllipse()
-		}
-		if(event.code === "KeyT")
-		{
-			addTriangle()
-		}
-		if(event.code === "KeyZ")
-		{
-			canUndo() && undo()
-		}
-		if(event.code === "KeyY")
-		{
-			canRedo() && redo()
-		}
-	}
-
-	useEffect(() => {
-		document.addEventListener("keyup", KeyUpListener)
-
-		return () => {
-			document.removeEventListener("keyup", KeyUpListener)
-		}
-	})
-
 	return (
 		<div className={styles.wrap}>
 			<Button text={"Insert"} indent={15}>
@@ -68,7 +35,7 @@ function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo,
 					src="images/undo.png"
 					alt=""
 					onClick={() => {
-						canUndo() && undo()
+						undo()
 					}}
 				/>
 				<img
@@ -80,7 +47,7 @@ function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo,
 					src="images/redo.png"
 					alt=""
 					onClick={() => {
-						canRedo() && redo()
+						redo()
 					}}
 				/>
 			</div>
