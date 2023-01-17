@@ -91,7 +91,7 @@ class Editor implements IEditor, IObservable
 
 	private NotifyObservers(): void
 	{
-		this.observers.forEach(observer => observer())
+		this.observers.forEach(observer => observer.Update())
 	}
 
 	private ExecuteCommand(command: ICommand): void

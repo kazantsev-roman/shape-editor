@@ -1,3 +1,6 @@
-type IObserver = () => void
+interface IObserver
+{
+	Update(): void
+}
 
 export default IObserver

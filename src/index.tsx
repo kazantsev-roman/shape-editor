@@ -7,15 +7,32 @@ import View from "./view/components/View"
 import Editor from "./model/Editor/Editor"
 import Controller from "./controller/Controller"
 import IObservable from "./common/IObservable";
+import IObserver from "./common/IObserver";
 
-const root = ReactDOM.createRoot(
-	document.getElementById('root') as HTMLElement
-);
+class Observer implements IObserver
+{
+	constructor(func: Function)
+	{
+		this.func = func
+	}
+
+	Update(): void
+	{
+		this.func()
+	}
+
+	private readonly func: Function
+}
 
 type EditorType = IEditor & IObservable
 
 const editor: EditorType = new Editor()
 const controller: IController = new Controller(editor)
+
+
+const root = ReactDOM.createRoot(
+	document.getElementById('root') as HTMLElement
+);
 
 function render()
 {
@@ -26,6 +43,7 @@ function render()
 	);
 }
 
-editor.RegisterObserver(render)
+const observer =  new Observer(render)
+editor.RegisterObserver(observer)
 
 render()
