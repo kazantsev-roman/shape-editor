@@ -6,23 +6,8 @@ import IController from "./controller/IController"
 import View from "./view/components/View"
 import Editor from "./model/Editor/Editor"
 import Controller from "./controller/Controller"
-import IObservable from "./common/IObservable";
-import IObserver from "./common/IObserver";
-
-class Observer implements IObserver
-{
-	constructor(func: Function)
-	{
-		this.func = func
-	}
-
-	Update(): void
-	{
-		this.func()
-	}
-
-	private readonly func: Function
-}
+import IObservable from "./common/IObservable"
+import Observer from "./common/Observer"
 
 type EditorType = IEditor & IObservable
 
