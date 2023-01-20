@@ -29,8 +29,8 @@ function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo,
 				<img
 					className={
 						canUndo()
-							? styles.image + " " + styles.imageUndo + " " + styles.imageHoverUndo
-							: styles.image + " " + styles.imageUndo + " " + styles.withOpacity
+							? `${styles.image} ${styles.imageUndo} ${styles.imageHoverUndo}`
+							: `${styles.image} ${styles.imageUndo} ${styles.withOpacity}`
 					}
 					src="images/undo.png"
 					alt=""
@@ -41,8 +41,8 @@ function Header({addTriangle, addRectangle, addEllipse, addImage, canUndo, undo,
 				<img
 					className={
 						canRedo()
-							? styles.image + " " + styles.imageRedo + " " + styles.imageHoverRedo
-							: styles.image + " " + styles.imageRedo + " " + styles.withOpacity
+							? `${styles.image} ${styles.imageRedo} ${styles.imageHoverRedo}`
+							: `${styles.image} ${styles.imageRedo} ${styles.withOpacity}`
 					}
 					src="images/redo.png"
 					alt=""
