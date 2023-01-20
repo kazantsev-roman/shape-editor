@@ -18,27 +18,62 @@ class Controller implements IController
 
 	public AddShape(type: string): void
 	{
-		this.model.AddShape(type)
+		try
+		{
+			this.model.AddShape(type)
+		}
+		catch(error)
+		{
+			console.log(error)
+		}
 	}
 
 	public AddImage(path: string): void
 	{
-		this.model.AddImage(path)
+		try
+		{
+			this.model.AddImage(path)
+		}
+		catch(error)
+		{
+			console.log(error)
+		}
 	}
 
 	public DeleteItem(id: string): void
 	{
-		this.model.DeleteItem(id)
+		try
+		{
+			this.model.DeleteItem(id)
+		}
+		catch(error)
+		{
+			console.log(error)
+		}
 	}
 
 	public ResizeItem(id: string, size: Size): void
 	{
-		this.model.ResizeItem(id, size)
+		try
+		{
+			this.model.ResizeItem(id, size)
+		}
+		catch(error)
+		{
+			console.log(error)
+		}
 	}
 
 	public MoveItem(id: string, point: Point): void
 	{
-		this.model.MoveItem(id, point)
+		try
+		{
+			this.model.MoveItem(id, point)
+		}
+		catch(error)
+		{
+			console.log(error)
+		}
 	}
 
 	public CanUndo(): boolean
@@ -48,7 +83,14 @@ class Controller implements IController
 
 	public Undo(): void
 	{
-		this.model.Undo()
+		try
+		{
+			this.model.Undo()
+		}
+		catch(error)
+		{
+			console.log(error)
+		}
 	}
 
 	public CanRedo(): boolean
@@ -58,7 +100,14 @@ class Controller implements IController
 
 	public Redo(): void
 	{
-		this.model.Redo()
+		try
+		{
+			this.model.Redo()
+		}
+		catch(error)
+		{
+			console.log(error)
+		}
 	}
 
 	private model: IEditor
