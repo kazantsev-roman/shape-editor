@@ -12,6 +12,7 @@ import MoveShapeCommand from "../Commands/MoveShapeCommand"
 import AddImageCommand from "../Commands/AddImageCommand"
 import IObservable from "../../common/IObservable"
 import ICommand from "../Commands/ICommand"
+import ItemsType from "../../common/types/itemsType";
 
 class Editor implements IEditor, IObservable
 {
@@ -33,7 +34,7 @@ class Editor implements IEditor, IObservable
 
 	AddImage(path: string): void
 	{
-		const addImageCommand = new AddImageCommand(this.items, "Image", path)
+		const addImageCommand = new AddImageCommand(this.items, ItemsType.Image, path)
 		this.ExecuteCommand(addImageCommand)
 	}
 
